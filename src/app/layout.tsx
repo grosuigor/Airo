@@ -1,11 +1,8 @@
 import { GlobalProvider } from "@/providers";
 import { Fab, Typography } from "@mui/material";
-import type { Metadata } from "next";
+import { metadata } from "./metadata";
 
-export const metadata: Metadata = {
-  title: "Airo",
-  description: "Air quality monitoring and reporting system",
-};
+export { metadata };
 
 export default function RootLayout({
   children,
