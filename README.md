@@ -81,16 +81,16 @@ Work is tracked in **Jira**. Every branch and pull request must reference the su
 | Type        | Meaning                           | Example                              |
 |-------------|-----------------------------------|--------------------------------------|
 | `main`      | Default branch                    | —                                    |
-| `feature/`  | New features                      | `KAN-17/feature/auth-sso`            |
-| `fix/`      | Bug fix                           | `KAN-24/fix/session-cookie`          |
-| `refactor/` | Refactoring without logic changes | `KAN-31/refactor/auth-actions`       |
-| `chore/`    | Infrastructure, meta files, envs  | `KAN-8/chore/github-actions`         |
-| `docs/`     | Documentation                     | `KAN-15/docs/readme`                 |
+| `feature/`  | New features                      | `feature/KAN-17-auth-sso`            |
+| `fix/`      | Bug fix                           | `fix/KAN-24-session-cookie`          |
+| `refactor/` | Refactoring without logic changes | `refactor/KAN-31-auth-actions`       |
+| `chore/`    | Infrastructure, meta files, envs  | `chore/KAN-8-github-actions`         |
+| `docs/`     | Documentation                     | `docs/KAN-15-readme`                 |
 
 Format:
 
 ```
-KAN-<id>/<type>/<short-desc-kebab-case>
+<type>/KAN-<id>-<short-desc-kebab-case>
 ```
 
 - `KAN-<id>` — Jira subtask key (required).
