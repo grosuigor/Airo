@@ -29,8 +29,11 @@ const eslintConfig = defineConfig([
         "error",
         {
           groups: [
-            ["^react$", "^react/", "^next", "^next/"],
-            ["^@mui", "^@emotion"],
+            ["^next", "^next/"],
+            ["^react$", "^react/"],
+            ["^@mui/material"],
+            ["^@mui/icons-material"],
+            ["^@emotion"],
             ["^@?\\w"],
             ["^@/"],
             ["^\\."],
