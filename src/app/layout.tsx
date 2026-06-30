@@ -1,5 +1,8 @@
-import { GlobalProvider } from "@/providers";
 import { Fab, Typography } from "@mui/material";
+
+import { fontVariables } from "@/lib/fonts";
+import { GlobalProvider } from "@/providers";
+
 import { metadata } from "./metadata";
 
 export { metadata };
@@ -10,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontVariables} data-mui-color-scheme="dark">
       <body>
         <GlobalProvider>{children}</GlobalProvider>
         <Fab
