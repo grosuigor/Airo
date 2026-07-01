@@ -1,8 +1,8 @@
-import type { SxProps, Theme } from "@mui/material/styles";
+import type { StylesGroup } from "@/lib/theme";
 
 import { MARKER_BORDER, MARKER_SIZE } from "./data";
 
-export const styles: Record<string, SxProps<Theme>> = {
+export const styles: StylesGroup = {
   root: (theme) => ({
     width: MARKER_SIZE + MARKER_BORDER,
     height: MARKER_SIZE + MARKER_BORDER,

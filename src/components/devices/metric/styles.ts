@@ -1,8 +1,7 @@
-import type { SxProps, Theme } from "@mui/material/styles";
-
+import type { StylesGroup } from "@/lib/theme";
 import { colors } from "@/lib/tokens";
 
-export const styles: Record<string, SxProps<Theme>> = {
+export const styles: StylesGroup = {
   root: (theme) => ({
     border: "1.5px solid transparent",
     borderRadius: `${theme.radii.card}px`,

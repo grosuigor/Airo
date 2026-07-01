@@ -1,6 +1,6 @@
 "use client";
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme, type SxProps, type Theme } from "@mui/material/styles";
 
 import { components } from "@/lib/components";
 import { colors, radii, sizes, typography } from "@/lib/tokens";
@@ -57,3 +57,5 @@ const theme = createTheme({
 });
 
 export default theme;
+
+export type StylesGroup = Record<string, SxProps<Theme>>;

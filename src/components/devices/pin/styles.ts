@@ -1,8 +1,8 @@
-import type { SxProps, Theme } from "@mui/material/styles";
+import type { StylesGroup } from "@/lib/theme";
 
 import { CIRCLE_LEFT, CIRCLE_SIZE, CIRCLE_TOP, PIN_HEIGHT, PIN_WIDTH } from "./data";
 
-export const styles: Record<string, SxProps<Theme>> = {
+export const styles: StylesGroup = {
   root: (theme) => ({
     position: "relative",
     width: PIN_WIDTH,
