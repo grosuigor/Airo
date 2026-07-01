@@ -17,14 +17,13 @@ export default function RootLayout({
       <body>
         <GlobalProvider>{children}</GlobalProvider>
         <Fab
-          color="primary"
           aria-label="version"
           disabled
           size="small"
           sx={{ position: "fixed", bottom: 20, left: 20, zIndex: 1200 }}
         >
-          <Typography variant="caption" color="white">
-            v0.1
+          <Typography variant="caption" sx={{ color: "common.white" }}>
+            v{process.env.NEXT_PUBLIC_VERSION}
           </Typography>
         </Fab>
       </body>
