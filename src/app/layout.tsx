@@ -20,7 +20,7 @@ export default function RootLayout({
           aria-label="version"
           disabled
           size="small"
-          sx={{ position: "fixed", bottom: 20, left: 20, zIndex: 1200 }}
+          sx={{ position: "fixed", bottom: 30, left: 10, zIndex: 1200 }}
         >
           <Typography variant="caption" sx={{ color: "common.white" }}>
             v{process.env.NEXT_PUBLIC_VERSION}
