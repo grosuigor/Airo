@@ -1,9 +1,7 @@
-export const airoColors = {
+export const colors = {
   background: {
     default: "#30363D",
     paper: "#3C444C",
-    elevated: "#3C444D",
-    nav: "#242C35",
   },
   primary: {
     main: "#6202EE",
@@ -20,7 +18,6 @@ export const airoColors = {
   },
   border: {
     default: "rgba(255, 255, 255, 0.6)",
-    subtle: "#ACAFB1",
   },
   grey: {
     300: "#DADADA",
@@ -50,184 +47,176 @@ export const airoColors = {
   },
 } as const;
 
-export const airoRadii = {
+export const radii = {
   control: 2,
   card: 4,
   panel: 10,
   pill: 100,
 } as const;
 
-export const airoSizes = {
+export const sizes = {
   buttonHeight: 40,
   inputHeight: 36,
   searchHeight: 34,
   tabHeight: 32,
 } as const;
 
-export const airoChartSizes = {
+export const chartSizes = {
   arc: 81,
   ring: 60,
 } as const;
 
-export const airoChartStroke = {
+export const chartStroke = {
   default: 2,
   hover: 6,
 } as const;
 
-export const airoLetterSpacing = {
+export const letterSpacing = {
   default: "0.15px",
   compact: "0.03em",
 } as const;
 
-export const airoFontFamilies = {
+export const fontFamilies = {
   heading: "var(--font-fira-sans), sans-serif",
   body: "var(--font-source-sans), sans-serif",
 } as const;
 
-export const airoTypography = {
+export const typography = {
   h1: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "32px",
     lineHeight: "40px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   h2: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "28px",
     lineHeight: "32px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   h3: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "20px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   h4: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "24px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   h5: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "20px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   h6: {
-    fontFamily: airoFontFamilies.heading,
+    fontFamily: fontFamilies.heading,
     fontWeight: 700,
     fontSize: "14px",
     lineHeight: "17px",
   },
   titleMd: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 700,
     fontSize: "16px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   titleSm: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 700,
     fontSize: "14px",
     lineHeight: "14px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   subtitle1: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 600,
     fontSize: "16px",
     lineHeight: "20px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   subtitle2: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 600,
     fontSize: "14px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   body1: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 400,
     fontSize: "14px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   body2: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 400,
     fontSize: "12px",
     lineHeight: "15px",
-    letterSpacing: airoLetterSpacing.compact,
+    letterSpacing: letterSpacing.compact,
   },
   button: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 600,
     fontSize: "16px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
     textTransform: "none" as const,
   },
   caption: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 400,
     fontSize: "12px",
     lineHeight: "11px",
   },
   overline: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 700,
     fontSize: "12px",
     lineHeight: "15px",
     textTransform: "none" as const,
   },
   chartValue: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 600,
     fontSize: "15.6px",
     lineHeight: "20px",
     textTransform: "uppercase" as const,
     textShadow: "0px 4.9px 4.9px rgba(0, 0, 0, 0.25)",
   },
-  labelMuted: {
-    fontFamily: airoFontFamilies.body,
-    fontWeight: 400,
-    fontSize: "12px",
-    lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
-    opacity: 0.5,
-  },
   helper: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 400,
     fontSize: "12px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   placeholder: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 600,
     fontSize: "12px",
     lineHeight: "24px",
-    letterSpacing: airoLetterSpacing.default,
+    letterSpacing: letterSpacing.default,
   },
   micro: {
-    fontFamily: airoFontFamilies.body,
+    fontFamily: fontFamilies.body,
     fontWeight: 400,
     fontSize: "10px",
     lineHeight: "13px",
-    letterSpacing: airoLetterSpacing.compact,
+    letterSpacing: letterSpacing.compact,
     textTransform: "uppercase" as const,
   },
 } as const;
 
-export type AiroTypographyVariant = keyof typeof airoTypography;
-export type MetricColor = keyof typeof airoColors.marker;
+export type typographyVariant = keyof typeof typography;
+export type MetricColor = keyof typeof colors.marker;

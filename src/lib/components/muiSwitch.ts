@@ -14,7 +14,7 @@ export const MuiSwitch: Components<Theme>["MuiSwitch"] = {
         color: theme.palette.text.primary,
         "& + .MuiSwitch-track": {
           backgroundColor: "transparent",
-          border: `1px solid ${theme.palette.airo.borderSubtle}`,
+          border: `1px solid ${theme.palette.text.primary}`,
           opacity: 1,
         },
       },
@@ -24,8 +24,8 @@ export const MuiSwitch: Components<Theme>["MuiSwitch"] = {
       height: 18,
     },
     track: ({ theme }) => ({
-      borderRadius: theme.airo.radii.pill,
-      border: `1px solid ${theme.palette.airo.borderSubtle}`,
+      borderRadius: theme.radii.pill,
+      border: `1px solid ${theme.palette.divider}`,
       backgroundColor: "transparent",
       opacity: 1,
     }),

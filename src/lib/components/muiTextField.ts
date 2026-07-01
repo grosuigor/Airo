@@ -15,12 +15,12 @@ export const MuiTextField: Components<Theme>["MuiTextField"] = {
   },
   styleOverrides: {
     root: ({ theme }) => ({
-      "& .airo-field-error-icon": {
+      "& .field-error-icon": {
         opacity: 0,
         visibility: "hidden",
         transition: theme.transitions.create(["opacity", "visibility"]),
       },
-      "& .MuiFilledInput-root.Mui-error .airo-field-error-icon": {
+      "& .MuiFilledInput-root.Mui-error .field-error-icon": {
         opacity: 1,
         visibility: "visible",
       },

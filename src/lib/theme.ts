@@ -2,68 +2,58 @@
 
 import { createTheme } from "@mui/material/styles";
 
-import { airoComponents } from "@/lib/components";
-import { airoColors, airoRadii, airoSizes, airoTypography } from "@/lib/tokens";
-
-const airoPaletteExtension = {
-  nav: airoColors.background.nav,
-  elevated: airoColors.background.elevated,
-  textMuted: airoColors.text.muted,
-  borderSubtle: airoColors.border.subtle,
-};
+import { components } from "@/lib/components";
+import { colors, radii, sizes, typography } from "@/lib/tokens";
 
 const theme = createTheme({
   cssVariables: {
     colorSchemeSelector: "data",
   },
   defaultColorScheme: "dark",
-  airo: {
-    radii: airoRadii,
-    sizes: airoSizes,
-  },
+  radii: radii,
+  sizes: sizes,
   colorSchemes: {
     dark: {
       palette: {
         mode: "dark",
         primary: {
-          main: airoColors.primary.main,
-          light: airoColors.primary.light,
-          dark: airoColors.primary.dark,
-          contrastText: airoColors.text.primary,
+          main: colors.primary.main,
+          light: colors.primary.light,
+          dark: colors.primary.dark,
+          contrastText: colors.text.primary,
         },
         background: {
-          default: airoColors.background.default,
-          paper: airoColors.background.paper,
+          default: colors.background.default,
+          paper: colors.background.paper,
         },
         text: {
-          primary: airoColors.text.primary,
-          secondary: airoColors.text.secondary,
-          disabled: airoColors.text.disabled,
+          primary: colors.text.primary,
+          secondary: colors.text.secondary,
+          disabled: colors.text.disabled,
         },
         error: {
-          main: airoColors.error.main,
-          accent: airoColors.error.accent,
+          main: colors.error.main,
+          accent: colors.error.accent,
         },
         success: {
-          main: airoColors.success.main,
-          light: airoColors.success.light,
-          dark: airoColors.success.dark,
+          main: colors.success.main,
+          light: colors.success.light,
+          dark: colors.success.dark,
         },
-        divider: airoColors.border.default,
-        grey: airoColors.grey,
-        airo: airoPaletteExtension,
+        divider: colors.border.default,
+        grey: colors.grey,
       },
     },
   },
   typography: {
-    fontFamily: airoTypography.body1.fontFamily,
-    ...airoTypography,
+    fontFamily: typography.body1.fontFamily,
+    ...typography,
   },
   shape: {
-    borderRadius: airoRadii.control,
+    borderRadius: radii.control,
   },
   spacing: 8,
-  components: airoComponents,
+  components,
 });
 
 export default theme;

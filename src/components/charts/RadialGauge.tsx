@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 
 import { useRadialGauge } from "@/hooks";
-import { airoChartSizes, type MetricColor } from "@/lib/tokens";
+import { chartSizes, type MetricColor } from "@/lib/tokens";
 
 export type RadialGaugeProps = {
   progress: number;
@@ -15,7 +15,7 @@ const circleTypes = ["track", "progress"] as const;
 
 export function RadialGauge({ progress, color, variant }: RadialGaugeProps) {
   const size = useMemo(() => {
-    return airoChartSizes[variant];
+    return chartSizes[variant];
   }, [variant]);
 
   const { gradient, strokeWidth, center, radius, dasharray, rotation } = useRadialGauge({

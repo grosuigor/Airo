@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-import { airoChartSizes, type MetricColor } from "@/lib/tokens";
+import { chartSizes, type MetricColor } from "@/lib/tokens";
 
 import { RadialGauge } from "./RadialGauge";
 
@@ -27,7 +27,7 @@ export function MetricArcChart({ title, subtitle, value, progress, color }: Metr
         height: 154,
         p: 2,
         borderRadius: "3px",
-        bgcolor: theme.palette.airo.elevated,
+        bgcolor: theme.palette.background.paper,
         boxShadow: "0px 14.6px 19.5px rgba(0, 0, 0, 0.1)",
         display: "flex",
         flexDirection: "column",
@@ -56,8 +56,8 @@ export function MetricArcChart({ title, subtitle, value, progress, color }: Metr
       <Box
         sx={{
           position: "relative",
-          width: airoChartSizes.arc,
-          height: airoChartSizes.arc,
+          width: chartSizes.arc,
+          height: chartSizes.arc,
           display: "grid",
           placeItems: "center",
         }}

@@ -3,8 +3,8 @@ import type { Components, Theme } from "@mui/material/styles";
 export const MuiTab: Components<Theme>["MuiTab"] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      minHeight: theme.airo.sizes.tabHeight,
-      borderRadius: theme.airo.radii.control,
+      minHeight: theme.sizes.tabHeight,
+      borderRadius: theme.radii.control,
       marginRight: 4,
       padding: "4px 12px",
       backgroundColor: theme.palette.background.paper,

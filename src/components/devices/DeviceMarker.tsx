@@ -4,9 +4,9 @@ import { useId, useMemo } from "react";
 
 import IconButton, { type IconButtonProps } from "@mui/material/IconButton";
 
-import { airoColors } from "@/lib/tokens";
+import { colors } from "@/lib/tokens";
 
-type MarkerColor = keyof typeof airoColors.marker;
+type MarkerColor = keyof typeof colors.marker;
 
 type DeviceMarkerProps = Omit<IconButtonProps, "children" | "color"> & {
   color: MarkerColor;
@@ -21,7 +21,7 @@ const CENTER = MARKER_SIZE / 2;
 export function DeviceMarker({ color, sx, ...props }: DeviceMarkerProps) {
   const id = useId();
   const gradientId = useMemo(() => `${id}-${color}`, [id, color]);
-  const { start, end } = useMemo(() => airoColors.marker[color], [color]);
+  const { start, end } = useMemo(() => colors.marker[color], [color]);
 
   return (
     <IconButton

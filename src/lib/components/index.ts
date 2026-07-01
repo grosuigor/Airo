@@ -13,7 +13,7 @@ import { MuiTab } from "./muiTab";
 import { MuiTabs } from "./muiTabs";
 import { MuiTextField } from "./muiTextField";
 
-export const airoComponents: Components<Theme> = {
+export const components: Components<Theme> = {
   MuiCssBaseline,
   MuiButton,
   MuiFilledInput,

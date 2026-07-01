@@ -18,7 +18,7 @@ export function DevicePanel({ name, location }: DevicePanelProps) {
         alignItems: "center",
         p: 1.5,
         bgcolor: "background.paper",
-        borderRadius: `${theme.airo.radii.control}px`,
+        borderRadius: `${theme.radii.control}px`,
         maxWidth: 351,
       })}
     >

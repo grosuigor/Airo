@@ -2,7 +2,7 @@ import Stack from "@mui/material/Stack";
 import { type SxProps, type Theme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
-import { airoColors } from "@/lib/tokens";
+import { colors } from "@/lib/tokens";
 
 type DeviceMetricProps = {
   label: string;
@@ -18,10 +18,10 @@ export function DeviceMetric({ label, value, sx }: DeviceMetricProps) {
       sx={[
         (theme) => ({
           border: "1.5px solid transparent",
-          borderRadius: `${theme.airo.radii.card}px`,
+          borderRadius: `${theme.radii.card}px`,
           background: `
             linear-gradient(${theme.palette.background.default}, ${theme.palette.background.default}) padding-box,
-            linear-gradient(135deg, ${airoColors.pin.gradientStart} 0%, ${airoColors.pin.gradientEnd} 100%) border-box
+            linear-gradient(135deg, ${colors.pin.gradientStart} 0%, ${colors.pin.gradientEnd} 100%) border-box
           `,
           p: 1,
         }),

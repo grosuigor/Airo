@@ -48,7 +48,7 @@ export function ComponentShowcase() {
               sx={(theme) => ({
                 minWidth: 0,
                 bgcolor: "background.default",
-                borderRadius: `${theme.airo.radii.panel}px`,
+                borderRadius: `${theme.radii.panel}px`,
                 p: 2.5,
                 height: "100%",
               })}

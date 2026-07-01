@@ -22,7 +22,7 @@ export const MuiMenuItem: Components<Theme>["MuiMenuItem"] = {
       },
       "&.Mui-disabled": {
         opacity: 1,
-        color: theme.palette.airo.textMuted,
+        color: theme.palette.text.secondary,
       },
     }),
   },

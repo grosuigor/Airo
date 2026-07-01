@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import { airoColors } from "@/lib/tokens";
+import { colors } from "@/lib/tokens";
 
 type DevicePinProps = Omit<IconButtonProps, "children"> & {
   value: number | string;
@@ -22,7 +22,7 @@ const CIRCLE_SIZE = 24;
 const CIRCLE_TOP = 8;
 const CIRCLE_LEFT = (PIN_WIDTH - CIRCLE_SIZE) / 2;
 
-const { gradientStart, gradientEnd } = airoColors.pin;
+const { gradientStart, gradientEnd } = colors.pin;
 
 export function DevicePin({ value, sx, ...props }: DevicePinProps) {
   const gradientId = useId();

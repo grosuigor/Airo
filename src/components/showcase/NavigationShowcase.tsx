@@ -37,7 +37,7 @@ export function NavigationShowcase() {
           placeholder="Type address..."
           sx={(theme) => ({
             "& .MuiInputBase-root": {
-              borderRadius: theme.airo.radii.pill,
+              borderRadius: theme.radii.pill,
             },
           })}
           fullWidth

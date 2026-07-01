@@ -3,7 +3,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import { airoChartSizes, airoChartStroke, type MetricColor } from "@/lib/tokens";
+import { chartSizes, chartStroke, type MetricColor } from "@/lib/tokens";
 
 import { RadialGauge } from "./RadialGauge";
 
@@ -36,7 +36,7 @@ export function MetricRingChart({ label, value, progress, color }: MetricRingCha
             opacity: 1,
           },
           "& .radial-gauge-progress": {
-            strokeWidth: airoChartStroke.hover,
+            strokeWidth: chartStroke.hover,
           },
         },
       })}
@@ -44,8 +44,8 @@ export function MetricRingChart({ label, value, progress, color }: MetricRingCha
       <Box
         sx={{
           position: "relative",
-          width: airoChartSizes.ring,
-          height: airoChartSizes.ring,
+          width: chartSizes.ring,
+          height: chartSizes.ring,
           display: "grid",
           placeItems: "center",
         }}
@@ -59,10 +59,10 @@ export function MetricRingChart({ label, value, progress, color }: MetricRingCha
       </Box>
       <Typography
         className="metric-ring-chart-label"
-        variant="labelMuted"
         sx={(theme) => ({
           textAlign: "center",
           whiteSpace: "nowrap",
+          color: theme.palette.text.secondary,
           transition: theme.transitions.create("color"),
         })}
       >

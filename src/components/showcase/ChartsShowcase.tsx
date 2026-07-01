@@ -44,7 +44,7 @@ export function ChartsShowcase() {
         spacing={2}
         sx={(theme) => ({
           p: 2.5,
-          borderRadius: `${theme.airo.radii.card}px`,
+          borderRadius: `${theme.radii.card}px`,
           bgcolor: theme.palette.background.paper,
           boxShadow: "0px 20px 50px rgba(0, 0, 0, 0.25)",
         })}

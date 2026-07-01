@@ -1,8 +1,8 @@
 import type { Theme } from "@mui/material/styles";
 
 export const filledInputRootStyles = (theme: Theme) => ({
-  minHeight: theme.airo.sizes.inputHeight,
-  borderRadius: theme.airo.radii.control,
+  minHeight: theme.sizes.inputHeight,
+  borderRadius: theme.radii.control,
   backgroundColor: theme.palette.background.paper,
   transition: theme.transitions.create(["outline", "background-color"]),
   outline: "2px solid transparent",

@@ -6,8 +6,8 @@ export const MuiButton: Components<Theme>["MuiButton"] = {
   },
   styleOverrides: {
     root: ({ theme }) => ({
-      minHeight: theme.airo.sizes.buttonHeight,
-      borderRadius: theme.airo.radii.control,
+      minHeight: theme.sizes.buttonHeight,
+      borderRadius: theme.radii.control,
       padding: "8px 16px",
       "&.MuiButton-contained": {
         backgroundColor: theme.palette.primary.main,

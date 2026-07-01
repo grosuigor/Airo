@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 
-import { airoChartStroke, type MetricColor } from "@/lib/tokens";
+import { chartStroke, type MetricColor } from "@/lib/tokens";
 
 import { useDashArray } from "./useDashArray";
 import { useMetricGradient } from "./useMetricGradient";
@@ -18,16 +18,16 @@ export function useRadialGauge({ size, progress, color, variant = "ring" }: UseR
   const gradient = useMetricGradient(color);
 
   const center = useMemo(() => size / 2, [size]);
-  const radius = useMemo(() => center - airoChartStroke.hover / 2, [center]);
+  const radius = useMemo(() => center - chartStroke.hover / 2, [center]);
 
   const dasharray = useDashArray({ radius, progress, variant });
 
   const [rotation, strokeWidth] = useMemo(() => {
     if (variant === "arc") {
-      return [135, airoChartStroke.hover];
+      return [135, chartStroke.hover];
     }
 
-    return [-90, airoChartStroke.default];
+    return [-90, chartStroke.default];
   }, [variant]);
 
   return {
