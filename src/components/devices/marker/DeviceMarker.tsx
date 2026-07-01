@@ -2,21 +2,14 @@
 
 import { useId, useMemo } from "react";
 
-import IconButton, { type IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 
 import { colors } from "@/lib/tokens";
 
-type MarkerColor = keyof typeof colors.marker;
-
-type DeviceMarkerProps = Omit<IconButtonProps, "children" | "color"> & {
-  color: MarkerColor;
-};
-
-const MARKER_SIZE = 16;
-const MARKER_STROKE = 4;
-const MARKER_BORDER = 3;
-const RADIUS = (MARKER_SIZE - MARKER_STROKE) / 2;
-const CENTER = MARKER_SIZE / 2;
+import { combineSx } from "../combineSx";
+import { MARKER_CENTER, MARKER_RADIUS, MARKER_SIZE, MARKER_STROKE } from "./data";
+import { styles } from "./styles";
+import type { DeviceMarkerProps } from "./types";
 
 export function DeviceMarker({ color, sx, ...props }: DeviceMarkerProps) {
   const id = useId();
@@ -27,22 +20,7 @@ export function DeviceMarker({ color, sx, ...props }: DeviceMarkerProps) {
     <IconButton
       aria-label={`${color} marker`}
       disableRipple
-      sx={[
-        (theme) => ({
-          width: MARKER_SIZE + MARKER_BORDER,
-          height: MARKER_SIZE + MARKER_BORDER,
-          p: 0,
-          flexShrink: 0,
-          borderRadius: "50%",
-          cursor: "pointer",
-          border: `${MARKER_BORDER}px solid transparent`,
-          transition: theme.transitions.create("border-color"),
-          "&:hover, &.Mui-focusVisible, &.Mui-focused": {
-            borderColor: theme.palette.text.primary,
-          },
-        }),
-        ...(sx ? (Array.isArray(sx) ? sx : [sx]) : []),
-      ]}
+      sx={combineSx(styles.root, sx)}
       {...props}
     >
       <svg
@@ -54,9 +32,9 @@ export function DeviceMarker({ color, sx, ...props }: DeviceMarkerProps) {
         <defs>
           <linearGradient
             id={gradientId}
-            x1={CENTER}
+            x1={MARKER_CENTER}
             y1={0}
-            x2={CENTER}
+            x2={MARKER_CENTER}
             y2={MARKER_SIZE}
             gradientUnits="userSpaceOnUse"
           >
@@ -65,9 +43,9 @@ export function DeviceMarker({ color, sx, ...props }: DeviceMarkerProps) {
           </linearGradient>
         </defs>
         <circle
-          cx={CENTER}
-          cy={CENTER}
-          r={RADIUS}
+          cx={MARKER_CENTER}
+          cy={MARKER_CENTER}
+          r={MARKER_RADIUS}
           fill="none"
           stroke={`url(#${gradientId})`}
           strokeWidth={MARKER_STROKE}

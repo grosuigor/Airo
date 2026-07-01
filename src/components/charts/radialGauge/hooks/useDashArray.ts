@@ -5,13 +5,20 @@ import { useMemo } from "react";
 type UseDashArrayParams = {
   radius: number;
   progress: number;
-  variant?: "ring" | "arc";
+  variant: "ring" | "arc";
 };
 
-export function useDashArray({ radius, progress, variant = "ring" }: UseDashArrayParams) {
+const ARC_LENGTH = {
+  ring: 1,
+  arc: 0.75,
+};
+
+const CIRCUMFERENCE_RATIO = 2 * Math.PI;
+
+export function useDashArray({ radius, progress, variant }: UseDashArrayParams) {
   return useMemo(() => {
-    const circumference = 2 * Math.PI * radius;
-    const arcLength = circumference * (variant === "arc" ? 0.75 : 1);
+    const circumference = CIRCUMFERENCE_RATIO * radius;
+    const arcLength = circumference * ARC_LENGTH[variant];
     const clampedProgress = Math.min(100, Math.max(0, progress));
     const progressLength = arcLength * (clampedProgress / 100);
 

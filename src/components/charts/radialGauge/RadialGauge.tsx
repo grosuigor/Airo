@@ -2,16 +2,12 @@
 
 import { useMemo } from "react";
 
-import { useRadialGauge } from "@/hooks";
-import { chartSizes, type MetricColor } from "@/lib/tokens";
+import { chartSizes } from "@/lib/tokens";
 
-export type RadialGaugeProps = {
-  progress: number;
-  color: MetricColor;
-  variant: "ring" | "arc";
-};
+import { useRadialGauge } from "./hooks";
+import type { RadialGaugeProps } from "./types";
 
-const circleTypes = ["track", "progress"] as const;
+const CIRCLE_TYPES = ["track", "progress"] as const;
 
 export function RadialGauge({ progress, color, variant }: RadialGaugeProps) {
   const size = useMemo(() => {
@@ -40,7 +36,7 @@ export function RadialGauge({ progress, color, variant }: RadialGaugeProps) {
           <stop offset="100%" stopColor={gradient.end} />
         </linearGradient>
       </defs>
-      {circleTypes.map((type) => (
+      {CIRCLE_TYPES.map((type) => (
         <circle
           key={type}
           className={`radial-gauge-${type}`}

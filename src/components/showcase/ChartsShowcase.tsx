@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { MetricArcChart, MetricRingChart } from "@/components/charts";
+import { ArcChart, RingChart } from "@/components/charts";
 import type { MetricColor } from "@/lib/tokens";
 
 const ringChartMetrics: {
@@ -33,7 +33,7 @@ export function ChartsShowcase() {
       spacing={2}
       sx={{ flexWrap: "wrap", alignItems: "flex-start" }}
     >
-      <MetricArcChart
+      <ArcChart
         title="PM2.5"
         subtitle="Normal range: 1-9"
         value="7.8"
@@ -53,7 +53,7 @@ export function ChartsShowcase() {
 
         <Stack direction="row" spacing={2}>
           {ringChartMetrics.map((metric) => (
-            <MetricRingChart key={metric.label} {...metric} />
+            <RingChart key={metric.label} {...metric} />
           ))}
         </Stack>
       </Stack>

@@ -14,6 +14,16 @@ type UseRadialGaugeParams = {
   variant?: "ring" | "arc";
 };
 
+const ROTATION = {
+  ring: -90,
+  arc: 135,
+};
+
+const STROKE_WIDTH = {
+  ring: chartStroke.default,
+  arc: chartStroke.hover,
+};
+
 export function useRadialGauge({ size, progress, color, variant = "ring" }: UseRadialGaugeParams) {
   const gradient = useMetricGradient(color);
 
@@ -22,13 +32,8 @@ export function useRadialGauge({ size, progress, color, variant = "ring" }: UseR
 
   const dasharray = useDashArray({ radius, progress, variant });
 
-  const [rotation, strokeWidth] = useMemo(() => {
-    if (variant === "arc") {
-      return [135, chartStroke.hover];
-    }
-
-    return [-90, chartStroke.default];
-  }, [variant]);
+  const rotation = useMemo(() => ROTATION[variant], [variant]);
+  const strokeWidth = useMemo(() => STROKE_WIDTH[variant], [variant]);
 
   return {
     gradient,

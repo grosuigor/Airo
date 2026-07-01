@@ -1,6 +1,6 @@
-import type { Theme } from "@mui/material/styles";
+import type { SxProps, Theme } from "@mui/material/styles";
 
-export const filledInputRootStyles = (theme: Theme) => ({
+export const filledInputRootStyles: SxProps<Theme> = (theme) => ({
   minHeight: theme.sizes.inputHeight,
   borderRadius: theme.radii.control,
   backgroundColor: theme.palette.background.paper,

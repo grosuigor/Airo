@@ -1,2 +1,2 @@
-export { MetricArcChart } from "./MetricArcChart";
-export { MetricRingChart } from "./MetricRingChart";
+export { ArcChart } from "./arc";
+export { RingChart } from "./ring";
