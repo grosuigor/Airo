@@ -9,11 +9,12 @@ export const styles: StylesGroup = {
     top: 0,
     width: "100%",
     height: "3.75rem",
-    backgroundColor: "background.default",
+    backgroundColor: "#242C35",
     borderBottom: "1px solid",
     borderColor: "background.paper",
     alignItems: "center",
     justifyContent: "space-between",
+    boxShadow: "0px 3px 0px 0px #00000026",
   },
   logoContainer: {
     alignItems: "flex-end",
