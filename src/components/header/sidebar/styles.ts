@@ -20,21 +20,4 @@ export const styles: StylesGroup = {
     gap: 16,
     alignItems: "center",
   },
-  header: {
-    width: "100%",
-    alignItems: "center",
-  },
-  content: {
-    alignItems: "center",
-    textAlign: "center",
-    gap: 4,
-    maxWidth: 250,
-    "& > h5": {
-      fontWeight: 400,
-    },
-  },
-  buttonContainer: {
-    width: 250,
-    gap: 4,
-  },
 };
