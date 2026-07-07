@@ -1,4 +1,5 @@
-import { Fab, Typography } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import Typography from "@mui/material/Typography";
 
 import { fontVariables } from "@/lib/fonts";
 import { GlobalProvider } from "@/providers";

@@ -1,10 +1,12 @@
 import type { Components, Theme } from "@mui/material/styles";
 
+import { sizes } from "@/lib/tokens";
+
 export const MuiSwitch: Components<Theme>["MuiSwitch"] = {
   styleOverrides: {
     root: {
       width: 57,
-      height: 30,
+      height: sizes.inputHeight,
       padding: 0,
     },
     switchBase: ({ theme }) => ({
