@@ -15,11 +15,14 @@ Air quality monitoring and reporting system.
 
 ```bash
 npm install
-cp .env.example .env.local   # when available
+cp .env.local.example .env.local
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+- **Production:** [https://airo-mauve.vercel.app/](https://airo-mauve.vercel.app/)
+- **Development:** [https://airo-git-dev-ig-rosu.vercel.app/](https://airo-git-dev-ig-rosu.vercel.app/)
 
 ### Build check
 
