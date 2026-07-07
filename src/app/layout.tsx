@@ -1,4 +1,5 @@
-import { Fab, Typography } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import Typography from "@mui/material/Typography";
 
 import { fontVariables } from "@/lib/fonts";
 import { GlobalProvider } from "@/providers";
@@ -20,7 +21,7 @@ export default function RootLayout({
           aria-label="version"
           disabled
           size="small"
-          sx={{ position: "fixed", bottom: 20, left: 20, zIndex: 1200 }}
+          sx={{ position: "fixed", bottom: 30, left: 10, zIndex: 1200 }}
         >
           <Typography variant="caption" sx={{ color: "common.white" }}>
             v{process.env.NEXT_PUBLIC_VERSION}

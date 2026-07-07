@@ -56,9 +56,8 @@ export const radii = {
 
 export const sizes = {
   buttonHeight: 40,
-  inputHeight: 36,
-  searchHeight: 34,
-  tabHeight: 32,
+  inputHeight: 30,
+  tabHeight: 34,
 } as const;
 
 export const chartSizes = {
