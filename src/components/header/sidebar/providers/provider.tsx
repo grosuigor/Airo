@@ -3,7 +3,7 @@ import { PropsWithChildren, useCallback, useState } from "react";
 import { SidebarContext } from "./context";
 
 export function SidebarProvider({ children }: PropsWithChildren) {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
 
   const toggle = useCallback(() => {
     setOpened((prev) => !prev);
