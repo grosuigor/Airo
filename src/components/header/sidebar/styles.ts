@@ -17,7 +17,7 @@ export const styles: StylesGroup = {
     height: "100%",
     px: 2,
     py: 4.5,
-    gap: 16,
+    gap: 4,
     alignItems: "center",
   },
 };
