@@ -11,7 +11,7 @@ export function Header() {
   return (
     <Stack direction="row" sx={styles.root}>
       <Stack direction="row" spacing={0.5} sx={styles.logoContainer}>
-        <Image src="/logo.svg" alt="Logo" width={132} height={32} />
+        <Image loading="eager" src="/logo.svg" alt="Logo" width={132} height={32} />
         <Typography variant="body2" sx={{ color: "text.disabled" }}>
           by Grid Dynamics
         </Typography>
