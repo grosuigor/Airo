@@ -16,7 +16,7 @@ export function SidebarHeader() {
   const { close } = useSidebarContext();
   const { name, username, avatarSrc, fallbackInitial } = useUserInfo();
 
-  if (!name) {
+  if (!username) {
     return (
       <Stack direction="row" sx={styles.root}>
         <Typography variant="h4" color="text.primary" sx={styles.title}>
@@ -36,10 +36,10 @@ export function SidebarHeader() {
       </Avatar>
       <Stack sx={styles.userInfo}>
         <Typography variant="h4" color="text.primary" sx={styles.name}>
-          {name ?? "Login"}
+          {name}
         </Typography>
         <Typography variant="caption" color="text.secondary">
-          {username ? `@${username}` : "@guest"}
+          {`@${username}`}
         </Typography>
       </Stack>
       <IconButton aria-label="close" onClick={close}>

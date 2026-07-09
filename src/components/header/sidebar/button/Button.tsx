@@ -19,7 +19,11 @@ export function SidebarButton() {
   return (
     <Button variant="text" sx={styles.root} onClick={toggle}>
       <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-        <Avatar alt="profile" src={avatarSrc}>
+        <Avatar
+          alt="profile"
+          src={avatarSrc}
+          slotProps={{ img: { referrerPolicy: "no-referrer" } }}
+        >
           {fallbackInitial ?? <PersonIcon />}
         </Avatar>
         <Typography variant="body1" sx={{ color: "text.muted" }}>
