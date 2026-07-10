@@ -2,7 +2,6 @@ import type { Components, Theme } from "@mui/material/styles";
 
 import { MuiBadge } from "./muiBadge";
 import { MuiButton } from "./muiButton";
-import { MuiButtonGroup } from "./muiButtonGroup";
 import { MuiCssBaseline } from "./muiCssBaseline";
 import { MuiFilledInput } from "./muiFilledInput";
 import { MuiMenu } from "./muiMenu";
@@ -17,7 +16,6 @@ import { MuiTextField } from "./muiTextField";
 export const components: Components<Theme> = {
   MuiCssBaseline,
   MuiButton,
-  MuiButtonGroup,
   MuiFilledInput,
   MuiTextField,
   MuiSelect,
