@@ -8,12 +8,13 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonIcon from "@mui/icons-material/Person";
 
+import { useBackdropContext } from "@/providers";
+
 import { useUserInfo } from "../hooks";
-import { useSidebarContext } from "../providers";
 import { styles } from "./styles";
 
 export function SidebarHeader() {
-  const { close } = useSidebarContext();
+  const { close } = useBackdropContext();
   const { name, username, avatarSrc, fallbackInitial } = useUserInfo();
 
   if (!username) {

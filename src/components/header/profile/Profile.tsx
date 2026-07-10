@@ -6,12 +6,14 @@ import Stack from "@mui/material/Stack";
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-import { Sidebar, SidebarProvider } from "../sidebar";
+import { BackdropProvider } from "@/providers";
+
+import { Sidebar } from "../sidebar";
 import { styles } from "./styles";
 
 export function Profile() {
   return (
-    <SidebarProvider>
+    <BackdropProvider value={{ id: "sidebarDrawer" }}>
       <Stack direction="row" spacing={1.5} sx={styles.root}>
         <Sidebar />
         <IconButton aria-label="show new notifications" size="small">
@@ -21,6 +23,6 @@ export function Profile() {
         </IconButton>
         <Sidebar.Button />
       </Stack>
-    </SidebarProvider>
+    </BackdropProvider>
   );
 }
