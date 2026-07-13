@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 import { DEVICE_METRIC_LABELS, DEVICE_METRICS } from "@/components/devices/data";
-import type { DeviceMetrics } from "@/components/devices/types";
+import type { DeviceMetrics } from "@/types";
 
 import type { SelectFieldProps } from "./types";
 

@@ -1,4 +1,4 @@
-import type { DeviceMetrics } from "@/components/devices/types";
+import type { DeviceMetrics } from "@/types";
 
 export type SelectFieldProps = {
   metrics: DeviceMetrics[];
