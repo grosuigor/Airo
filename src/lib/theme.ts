@@ -22,6 +22,12 @@ const theme = createTheme({
           dark: colors.primary.dark,
           contrastText: colors.text.primary,
         },
+        secondary: {
+          main: colors.secondary.main,
+          light: colors.secondary.light,
+          dark: colors.secondary.dark,
+          contrastText: colors.text.primary,
+        },
         background: {
           default: colors.background.default,
           paper: colors.background.paper,
@@ -39,6 +45,12 @@ const theme = createTheme({
           main: colors.success.main,
           light: colors.success.light,
           dark: colors.success.dark,
+        },
+        Alert: {
+          successFilledBg: colors.primary.light,
+          successFilledColor: colors.text.primary,
+          errorFilledBg: colors.secondary.light,
+          errorFilledColor: colors.text.primary,
         },
         divider: colors.border.default,
         grey: colors.grey,
