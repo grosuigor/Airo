@@ -10,5 +10,4 @@ export type FormField = {
   placeholder: string;
   multiple?: boolean;
   selectOptions?: Array<{ label: string; value: string }>;
-  icon?: React.ReactNode;
 };

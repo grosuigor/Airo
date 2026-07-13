@@ -1,8 +1,6 @@
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-
 import type { FormField } from "./types";
 
-export const DEVICE_FORM_FIELDS: Array<FormField> = [
+export const deviceFormFields: Array<FormField> = [
   {
     name: "name",
     label: "Name",
@@ -12,7 +10,6 @@ export const DEVICE_FORM_FIELDS: Array<FormField> = [
     name: "location",
     label: "Location",
     placeholder: "Type location...",
-    icon: <LocationOnIcon sx={{ fontSize: "1.75rem" }} />,
   },
   {
     name: "description",
