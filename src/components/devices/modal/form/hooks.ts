@@ -1,9 +1,15 @@
-import { useCallback, useState } from "react";
+import { type MouseEvent, useCallback, useState } from "react";
+
+import { useBackdropContext, useDevicesDispatchContext, useToastContext } from "@/providers";
+import type { Device } from "@/types";
 
 import { DEVICE_METRICS } from "../../data";
-import type { Device } from "../../types";
 
 export function useDeviceForm() {
+  const dispatch = useDevicesDispatchContext();
+  const { close } = useBackdropContext();
+  const { showToast } = useToastContext();
+
   const [device, setDevice] = useState<Device>({
     name: "",
     location: "",
@@ -19,8 +25,22 @@ export function useDeviceForm() {
     [device],
   );
 
+  const saveDevice = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      dispatch({ type: "ADD", payload: device });
+      close();
+      showToast(
+        device.name ? `Device "${device.name}" added successfully` : "Device added successfully",
+        "success",
+      );
+    },
+    [device, dispatch, close, showToast],
+  );
+
   return {
     device,
     changeField,
+    saveDevice,
   };
 }
