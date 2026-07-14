@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -14,23 +16,25 @@ export function DeviceList() {
   const { open } = useBackdropContext();
   const { devices } = useDevicesContext();
 
-  return (
-    <Stack sx={styles.root}>
-      {devices.length === 0 ? (
+  const isEmpty = useMemo(() => devices.length === 0, [devices]);
+
+  const content = useMemo(
+    () =>
+      isEmpty ? (
         <Typography variant="h4" color="text.primary">
           No devices found
         </Typography>
       ) : (
-        <Stack sx={styles.devicesContainer}>
-          {devices.map((device, i) => (
-            <DevicePanel
-              key={`${device.name}-${i}`}
-              name={device.name}
-              location={device.location}
-            />
-          ))}
-        </Stack>
-      )}
+        devices.map(({ name, location }, i) => (
+          <DevicePanel key={`${name}-${i}`} name={name} location={location} />
+        ))
+      ),
+    [devices, isEmpty],
+  );
+
+  return (
+    <Stack sx={styles.root}>
+      <Stack sx={styles.devicesContainer}>{content}</Stack>
       <Button variant="text" onClick={open} sx={styles.addButton}>
         + Add new
       </Button>
