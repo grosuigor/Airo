@@ -7,6 +7,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import theme from "@/lib/theme";
 
 import { AuthProvider } from "./auth";
+import { GlobalBackdropProvider } from "./backdrop";
 import { MapProvider } from "./MapProvider";
 
 export function GlobalProvider({ children }: React.PropsWithChildren) {
@@ -15,7 +16,9 @@ export function GlobalProvider({ children }: React.PropsWithChildren) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <AuthProvider>
-          <MapProvider>{children}</MapProvider>
+          <MapProvider>
+            <GlobalBackdropProvider>{children}</GlobalBackdropProvider>
+          </MapProvider>
         </AuthProvider>
       </ThemeProvider>
     </AppRouterCacheProvider>

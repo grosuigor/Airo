@@ -8,12 +8,13 @@ import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import PersonIcon from "@mui/icons-material/Person";
 
+import { useBackdropContext } from "@/providers";
+
 import { useUserInfo } from "../hooks";
-import { useSidebarContext } from "../providers";
 import { styles } from "./styles";
 
 export function SidebarButton() {
-  const { opened, toggle } = useSidebarContext();
+  const { opened, toggle } = useBackdropContext();
   const { name, avatarSrc, fallbackInitial } = useUserInfo();
 
   return (

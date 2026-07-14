@@ -13,7 +13,7 @@ export const MuiMenuItem: Components<Theme>["MuiMenuItem"] = {
       },
       "&.Mui-selected": {
         backgroundColor: "transparent",
-        color: "#FFFFFF66",
+        color: "#FFFFFF",
         fontWeight: theme.typography.body1.fontWeight,
       },
       "&.Mui-selected:hover, &.Mui-selected.Mui-focusVisible, &.Mui-selected.Mui-focused": {

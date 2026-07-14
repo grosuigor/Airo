@@ -10,6 +10,7 @@ export const styles: StylesGroup = {
       top: "3.75rem",
       height: "calc(100vh - 3.75rem)",
       bgcolor: "background.default",
+      borderLeft: "none",
     },
   },
   container: {

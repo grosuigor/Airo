@@ -6,7 +6,7 @@ export const MuiSwitch: Components<Theme>["MuiSwitch"] = {
   styleOverrides: {
     root: {
       width: 57,
-      height: sizes.inputHeight,
+      height: sizes.switchHeight,
       padding: 0,
     },
     switchBase: ({ theme }) => ({
