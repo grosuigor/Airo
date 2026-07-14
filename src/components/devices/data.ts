@@ -1,4 +1,4 @@
-import { DeviceMetrics } from "./types";
+import type { DeviceMetrics } from "@/types";
 
 export const DEVICE_METRICS: DeviceMetrics[] = [
   "temperature",

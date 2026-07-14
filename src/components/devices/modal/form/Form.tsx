@@ -17,7 +17,7 @@ import { styles } from "./styles";
 
 export function Form() {
   const { close } = useBackdropContext();
-  const { device, changeField } = useDeviceForm();
+  const { device, changeField, saveDevice } = useDeviceForm();
 
   return (
     <Grid container rowSpacing={2} columnSpacing={4} columns={2} component="form">
@@ -48,7 +48,7 @@ export function Form() {
       <Grid size={1} />
       <Grid size={1}>
         <Stack direction="row" sx={styles.buttonsContainer}>
-          <Button variant="contained" color="primary" type="submit">
+          <Button variant="contained" color="primary" type="submit" onClick={saveDevice}>
             Add device
           </Button>
           <Button variant="outlined" color="primary" type="button" onClick={close}>

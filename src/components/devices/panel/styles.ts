@@ -25,6 +25,7 @@ export const styles: StylesGroup = {
   textContainer: {
     flex: 1,
     minWidth: 0,
+    textAlign: "left",
   },
   location: {
     color: "text.secondary",

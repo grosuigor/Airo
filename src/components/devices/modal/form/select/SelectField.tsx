@@ -5,10 +5,11 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-import { DEVICE_METRIC_LABELS, DEVICE_METRICS } from "@/components/devices/data";
-import type { DeviceMetrics } from "@/components/devices/types";
+import type { DeviceMetrics } from "@/types";
 
+import { metricsOptions } from "./data";
 import type { SelectFieldProps } from "./types";
+import { renderValue } from "./utils";
 
 export function SelectField({ metrics, changeField }: SelectFieldProps) {
   const changeMetrics = useCallback(
@@ -25,19 +26,15 @@ export function SelectField({ metrics, changeField }: SelectFieldProps) {
       required
       value={metrics}
       onChange={changeMetrics}
-      renderValue={(selected) =>
-        selected.length === DEVICE_METRICS.length
-          ? "All metrics"
-          : selected.map((metric) => DEVICE_METRIC_LABELS[metric]).join(", ")
-      }
+      renderValue={renderValue}
       inputProps={{
         id: "device-metrics",
       }}
     >
-      {DEVICE_METRICS.map((metric) => (
-        <MenuItem key={metric} value={metric}>
-          <Checkbox checked={metrics.includes(metric)} />
-          <ListItemText primary={DEVICE_METRIC_LABELS[metric]} />
+      {metricsOptions.map(({ label, value }) => (
+        <MenuItem key={value} value={value}>
+          <Checkbox checked={metrics.includes(value)} />
+          <ListItemText primary={label} />
         </MenuItem>
       ))}
     </Select>
