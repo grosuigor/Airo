@@ -30,14 +30,14 @@ export function LogoAndIconsShowcase() {
             </IconButton>
           </Stack>
           <Stack spacing={1}>
-            <DeviceMarker color="green" />
-            <DeviceMarker color="orange" />
-            <DeviceMarker color="red" />
+            <DeviceMarker color="green" latitude={51.5074} longitude={-0.1278} />
+            <DeviceMarker color="orange" latitude={51.5074} longitude={-0.1278} />
+            <DeviceMarker color="red" latitude={51.5074} longitude={-0.1278} />
           </Stack>
         </Stack>
 
         <Stack spacing={3}>
-          <DevicePin value={7.8} />
+          <DevicePin value={7.8} latitude={51.5074} longitude={-0.1278} />
           <Switch checked={switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
           <DeviceMetric label="CO2" value="696.5" />
         </Stack>
