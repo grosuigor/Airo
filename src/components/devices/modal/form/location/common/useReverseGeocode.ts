@@ -4,11 +4,11 @@ import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
 import type { DeviceCoordinates, LocationSelection } from "@/types";
 
-import { isInsideChisinau } from "./utils";
+import type { Geocoder } from "./types";
 
 export function useReverseGeocode() {
   const geocodingLib = useMapsLibrary("geocoding");
-  const geocoderRef = useRef<google.maps.Geocoder | null>(null);
+  const geocoderRef = useRef<Geocoder | null>(null);
 
   useEffect(() => {
     if (!geocodingLib) return;
@@ -17,7 +17,6 @@ export function useReverseGeocode() {
 
   return useCallback(async (coordinates: DeviceCoordinates): Promise<LocationSelection | null> => {
     if (!geocoderRef.current) return null;
-    if (!isInsideChisinau(coordinates.latitude, coordinates.longitude)) return null;
 
     try {
       const { results } = await geocoderRef.current.geocode({

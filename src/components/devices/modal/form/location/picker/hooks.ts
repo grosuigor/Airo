@@ -5,8 +5,8 @@ import { type MapMouseEvent } from "@vis.gl/react-google-maps";
 import { DeviceCoordinates, LocationSelection } from "@/types";
 import { hasValidCoordinates } from "@/utils";
 
-import { useReverseGeocode } from "./useReverseGeocode";
-import { createInitialDraft, isInsideChisinau } from "./utils";
+import { useReverseGeocode } from "../common";
+import { createInitialDraft } from "./utils";
 
 type onConfirmFn = (selection: LocationSelection) => void;
 type onCloseFn = () => void;
@@ -38,7 +38,6 @@ export function useLocationPicker(
     async (event: MapMouseEvent) => {
       const latLng = event.detail.latLng;
       if (!latLng) return;
-      if (!isInsideChisinau(latLng.lat, latLng.lng)) return;
 
       const nextCoordinates: DeviceCoordinates = {
         latitude: latLng.lat,

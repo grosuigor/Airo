@@ -4,13 +4,13 @@ import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
 import type { LocationSelection } from "@/types";
 
+import type { AutocompleteSuggestion } from "./types";
+
 export function useSelectPlaceSuggestion() {
   const placesLib = useMapsLibrary("places");
 
   return useCallback(
-    async (
-      suggestion: google.maps.places.AutocompleteSuggestion,
-    ): Promise<LocationSelection | null> => {
+    async (suggestion: AutocompleteSuggestion): Promise<LocationSelection | null> => {
       if (!placesLib || !suggestion.placePrediction) return null;
 
       const place = suggestion.placePrediction.toPlace();

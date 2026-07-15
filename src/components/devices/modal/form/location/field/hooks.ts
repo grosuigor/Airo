@@ -1,11 +1,10 @@
-import { useCallback, useState } from "react";
+import { type SyntheticEvent, useCallback, useState } from "react";
 
 import { EMPTY_COORDINATES } from "@/constants";
 import type { LocationSelection } from "@/types";
 
+import { useAutocompleteSuggestions, useSelectPlaceSuggestion } from "../common";
 import type { SuggestionOption } from "./types";
-import { useAutocompleteSuggestions } from "./useAutocompleteSuggestions";
-import { useSelectPlaceSuggestion } from "./useSelectPlaceSuggestion";
 
 const MIN_QUERY_LENGTH = 3;
 
@@ -27,7 +26,7 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
   }, [setOpen, resetSession]);
 
   const handleInputChange = useCallback(
-    (_: React.SyntheticEvent, value: string, reason: string) => {
+    (_: SyntheticEvent, value: string, reason: string) => {
       if (reason === "input") {
         setSearchQuery(value);
         setOpen(value.trim().length >= MIN_QUERY_LENGTH);
@@ -46,7 +45,7 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
   );
 
   const handleOptionSelect = useCallback(
-    async (_: React.SyntheticEvent, option: SuggestionOption | string | null) => {
+    async (_: SyntheticEvent, option: SuggestionOption | string | null) => {
       if (!option || typeof option === "string") return;
 
       const selection = await selectSuggestion(option.suggestion);

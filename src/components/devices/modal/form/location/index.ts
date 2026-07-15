@@ -1,1 +1,1 @@
-export { LocationField } from "./LocationField";
+export { LocationField } from "./field";

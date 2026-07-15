@@ -9,10 +9,8 @@ import TextField from "@mui/material/TextField";
 
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
-import { CHISINAU } from "@/constants";
-
+import { LocationPicker } from "../picker";
 import { useLocationField } from "./hooks";
-import { LocationPicker } from "./LocationPicker";
 import { styles } from "./styles";
 import type { LocationFieldProps } from "./types";
 
@@ -33,19 +31,19 @@ export function LocationField({ location, coordinates, onLocationChange }: Locat
           filterOptions={(x) => x}
           value={location}
           inputValue={location}
-          noOptionsText={`No addresses in ${CHISINAU.name}`}
+          noOptionsText={`No addresses found`}
           renderInput={(params) => (
             <TextField
               {...params}
               id="device-location"
-              placeholder={`Search address in ${CHISINAU.name}...`}
+              placeholder={`Type address (3+ characters)...`}
               required
             />
           )}
         />
         <IconButton
           type="button"
-          aria-label={`Pick location on map in ${CHISINAU.name}`}
+          aria-label={`Pick location on map`}
           onClick={() => setPickerOpen(true)}
           sx={styles.iconButton}
         >
