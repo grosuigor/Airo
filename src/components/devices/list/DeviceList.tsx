@@ -25,8 +25,8 @@ export function DeviceList() {
           No devices found
         </Typography>
       ) : (
-        devices.map(({ name, location }, i) => (
-          <DevicePanel key={`${name}-${i}`} name={name} location={location} />
+        devices.map(({ id, name, location }) => (
+          <DevicePanel key={id} name={name} location={location} />
         ))
       ),
     [devices, isEmpty],
@@ -36,7 +36,7 @@ export function DeviceList() {
     <Stack sx={styles.root}>
       <Stack sx={styles.devicesContainer}>{content}</Stack>
       <Button variant="text" onClick={open} sx={styles.addButton}>
-        + Add new
+        + Add New
       </Button>
       <DeviceModal />
     </Stack>

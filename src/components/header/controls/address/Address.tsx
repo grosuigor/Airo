@@ -1,36 +1,31 @@
 "use client";
 
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
-import SearchIcon from "@mui/icons-material/Search";
-import TuneIcon from "@mui/icons-material/Tune";
-
+import { useAddressField } from "./hooks";
+import { Input } from "./input";
+import { Option } from "./option";
+import { PaperComponent } from "./paper";
 import { styles } from "./styles";
 
 export function Address() {
+  const autoCompleteConfig = useAddressField();
+
   return (
-    <TextField
-      placeholder="Type address..."
+    <Autocomplete
+      {...autoCompleteConfig}
       sx={styles.input}
       fullWidth
-      slotProps={{
-        input: {
-          startAdornment: (
-            <InputAdornment position="start" sx={styles.inputIcon}>
-              <IconButton aria-label="tune" size="small" sx={styles.buttonIcon}>
-                <TuneIcon fontSize="inherit" />
-              </IconButton>
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position="end">
-              <SearchIcon sx={styles.searchIcon} />
-            </InputAdornment>
-          ),
-        },
+      openOnFocus={false}
+      forcePopupIcon={false}
+      getOptionLabel={(device) => device.location}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
+      slots={{ paper: PaperComponent }}
+      renderOption={(props, device) => {
+        const { key, ...rest } = props;
+        return <Option device={device} key={key} {...rest} />;
       }}
+      renderInput={(params) => <Input {...params} />}
     />
   );
 }
