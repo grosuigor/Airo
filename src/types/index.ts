@@ -1,1 +1,2 @@
-export type { Device, DeviceMetrics } from "./devices";
+export type { Device, DeviceCoordinates, DeviceMetrics } from "./devices";
+export type { LocationSelection } from "./map";

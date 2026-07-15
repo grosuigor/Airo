@@ -1,1 +1,2 @@
-export { generateId } from "./utils";
+export { generateId } from "./device";
+export { generateMapConfig, hasValidCoordinates } from "./map";
