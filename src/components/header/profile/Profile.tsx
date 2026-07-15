@@ -1,10 +1,9 @@
 "use client";
 
-import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 
 import { BackdropProvider } from "@/providers";
 
@@ -17,9 +16,7 @@ export function Profile() {
       <Stack direction="row" spacing={1.5} sx={styles.root}>
         <Sidebar />
         <IconButton aria-label="show new notifications" size="small">
-          <Badge variant="dot">
-            <NotificationsIcon />
-          </Badge>
+          <NotificationsOutlinedIcon />
         </IconButton>
         <Sidebar.Button />
       </Stack>
