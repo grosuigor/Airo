@@ -19,7 +19,7 @@ import { FormField } from "./types";
 
 export function Form() {
   const { close } = useBackdropContext();
-  const { device, changeField, setLocation, saveDevice } = useDeviceForm();
+  const { device, changeField, setLocation, canSubmit, saveDevice } = useDeviceForm();
 
   const renderField = useCallback(
     (field: FormField) => {
@@ -65,7 +65,13 @@ export function Form() {
       <Grid size={1} />
       <Grid size={1}>
         <Stack direction="row" sx={styles.buttonsContainer}>
-          <Button variant="contained" color="primary" type="submit" onClick={saveDevice}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={saveDevice}
+            disabled={!canSubmit}
+          >
             Add device
           </Button>
           <Button variant="outlined" color="primary" type="button" onClick={close}>

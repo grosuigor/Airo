@@ -33,6 +33,14 @@ export function useDeviceForm() {
     setDevice((prev) => ({ ...prev, location, coordinates }));
   }, []);
 
+  const canSubmit =
+    Boolean(device.name.trim()) &&
+    Boolean(device.location.trim()) &&
+    Boolean(device.description.trim()) &&
+    Boolean(device.key.trim()) &&
+    device.metrics.length > 0 &&
+    hasValidCoordinates(device.coordinates);
+
   const saveDevice = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -57,6 +65,7 @@ export function useDeviceForm() {
     device,
     changeField,
     setLocation,
+    canSubmit,
     saveDevice,
   };
 }
