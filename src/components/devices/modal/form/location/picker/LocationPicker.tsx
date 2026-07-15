@@ -5,9 +5,10 @@ import Dialog from "@mui/material/Dialog";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { AdvancedMarker, Map } from "@vis.gl/react-google-maps";
+import { Map } from "@vis.gl/react-google-maps";
 
-import { DevicePin } from "@/components/devices";
+import { DeviceMarker, DevicePin } from "@/components/devices";
+import { useDevicesContext } from "@/providers";
 import { generateMapConfig } from "@/utils";
 
 import { Buttons } from "./buttons";
@@ -18,6 +19,7 @@ import type { LocationPickerProps } from "./types";
 const mapConfig = generateMapConfig("LOCATION");
 
 export function LocationPicker({ open, coordinates, onClose, onConfirm }: LocationPickerProps) {
+  const { devices } = useDevicesContext();
   const { markerPosition, location, handleMapClick, handleConfirm } = useLocationPicker(
     coordinates,
     onConfirm,
@@ -33,10 +35,17 @@ export function LocationPicker({ open, coordinates, onClose, onConfirm }: Locati
         </Typography>
         <Box sx={styles.mapContainer}>
           <Map {...mapConfig} style={{ height: "100%", width: "100%" }} onClick={handleMapClick}>
+            {devices.map((device) => (
+              <DeviceMarker
+                key={device.id}
+                color="green"
+                aria-label={`${device.name} marker`}
+                latitude={device.coordinates.latitude}
+                longitude={device.coordinates.longitude}
+              />
+            ))}
             {markerPosition && (
-              <AdvancedMarker position={markerPosition} anchorLeft="-50%" anchorTop="-100%">
-                <DevicePin />
-              </AdvancedMarker>
+              <DevicePin latitude={markerPosition.lat} longitude={markerPosition.lng} />
             )}
           </Map>
         </Box>
