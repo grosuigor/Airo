@@ -36,7 +36,7 @@ export function DeviceList() {
     <Stack sx={styles.root}>
       <Stack sx={styles.devicesContainer}>{content}</Stack>
       <Button variant="text" onClick={open} sx={styles.addButton}>
-        + Add new
+        + Add New
       </Button>
       <DeviceModal />
     </Stack>

@@ -1,8 +1,9 @@
 import { type MouseEvent, useCallback, useState } from "react";
 
 import { useBackdropContext, useDevicesDispatchContext, useToastContext } from "@/providers";
-import type { Device } from "@/types";
+import type { Device, LocationSelection } from "@/types";
 import { generateId } from "@/utils";
+import { hasValidCoordinates } from "@/utils";
 
 import { DEVICE_METRICS } from "../../data";
 
@@ -24,12 +25,13 @@ export function useDeviceForm() {
     key: "",
   });
 
-  const changeField = useCallback(
-    (field: keyof Device, value: Device[keyof Device]) => {
-      setDevice({ ...device, [field]: value });
-    },
-    [device],
-  );
+  const changeField = useCallback((field: keyof Device, value: Device[keyof Device]) => {
+    setDevice((prev) => ({ ...prev, [field]: value }));
+  }, []);
+
+  const setLocation = useCallback(({ location, coordinates }: LocationSelection) => {
+    setDevice((prev) => ({ ...prev, location, coordinates }));
+  }, []);
 
   const saveDevice = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
@@ -37,6 +39,10 @@ export function useDeviceForm() {
       const form = e.currentTarget.form;
       if (!form?.checkValidity()) {
         form?.reportValidity();
+        return;
+      }
+      if (!hasValidCoordinates(device.coordinates)) {
+        showToast("Select an address from the list or pick a point on the map.", "error");
         return;
       }
       const id = generateId();
@@ -50,6 +56,7 @@ export function useDeviceForm() {
   return {
     device,
     changeField,
+    setLocation,
     saveDevice,
   };
 }

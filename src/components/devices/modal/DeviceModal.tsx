@@ -13,7 +13,7 @@ export function DeviceModal() {
   return (
     <Dialog open={opened} onClose={close} sx={styles.root}>
       <Stack sx={styles.content}>
-        <Typography variant="h4">Add new</Typography>
+        <Typography variant="h4">Add New</Typography>
         <Form />
       </Stack>
     </Dialog>
