@@ -22,7 +22,10 @@ export function Address() {
       isOptionEqualToValue={(option, value) => option.id === value.id}
       noOptionsText="No devices found"
       slots={{ paper: PaperComponent }}
-      renderOption={(props, device) => <Option device={device} {...props} />}
+      renderOption={(props, device) => {
+        const { key, ...rest } = props;
+        return <Option device={device} key={key} {...rest} />;
+      }}
       renderInput={(params) => <Input {...params} />}
     />
   );

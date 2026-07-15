@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { type MouseEvent, useCallback } from "react";
 
 import Button from "@mui/material/Button";
 import Paper, { type PaperProps } from "@mui/material/Paper";
@@ -10,7 +10,7 @@ import { styles } from "./styles";
 export function PaperComponent({ children, ...paperProps }: PaperProps) {
   const { open } = useBackdropContext();
   const handleAddDevice = useCallback(
-    (event: React.MouseEvent) => {
+    (event: MouseEvent) => {
       event.preventDefault();
       event.stopPropagation();
       open();
