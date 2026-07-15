@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 
 import { useMap } from "@vis.gl/react-google-maps";
 
-import { MAIN_MAP_ID } from "@/components/map/view/data";
+import { MAP_IDS } from "@/constants";
 import { useDevicesContext } from "@/providers";
 import type { Device } from "@/types";
 
@@ -12,7 +12,7 @@ const DEVICE_ZOOM = 15;
 const MIN_QUERY_LENGTH = 3;
 
 export function useAddressField() {
-  const map = useMap(MAIN_MAP_ID);
+  const map = useMap(MAP_IDS.MAIN);
   const { devices } = useDevicesContext();
   const [inputValue, setInputValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
