@@ -1,1 +1,1 @@
-export { CHISINAU, EMPTY_COORDINATES, MAP_IDS } from "./map";
+export { EMPTY_COORDINATES, LOCATION_MAP_PROPS, MAP_IDS } from "./map";
