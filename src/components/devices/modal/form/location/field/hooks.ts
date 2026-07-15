@@ -29,7 +29,7 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
     (_: SyntheticEvent, value: string, reason: string) => {
       if (reason === "input") {
         setSearchQuery(value);
-        setOpen(value.trim().length >= MIN_QUERY_LENGTH);
+        setOpen(value.trim().length > 0);
         onLocationChange({ location: value, coordinates: EMPTY_COORDINATES });
         return;
       }
@@ -76,6 +76,11 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
     [],
   );
 
+  const noOptionsText =
+    searchQuery.trim().length < MIN_QUERY_LENGTH
+      ? `Search should be at least ${MIN_QUERY_LENGTH} characters`
+      : "No addresses found";
+
   return {
     autocompleteOptions: {
       options: options,
@@ -86,6 +91,7 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
       loading: isLoading,
       getOptionLabel,
       isOptionEqualToValue,
+      noOptionsText,
     },
     handlePickerConfirm,
   };

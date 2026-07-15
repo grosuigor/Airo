@@ -20,7 +20,6 @@ export function Address() {
       forcePopupIcon={false}
       getOptionLabel={(device) => device.location}
       isOptionEqualToValue={(option, value) => option.id === value.id}
-      noOptionsText="No devices found"
       slots={{ paper: PaperComponent }}
       renderOption={(props, device) => {
         const { key, ...rest } = props;

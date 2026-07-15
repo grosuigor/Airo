@@ -31,14 +31,8 @@ export function LocationField({ location, coordinates, onLocationChange }: Locat
           filterOptions={(x) => x}
           value={location}
           inputValue={location}
-          noOptionsText={`No addresses found`}
           renderInput={(params) => (
-            <TextField
-              {...params}
-              id="device-location"
-              placeholder={`Type address (3+ characters)...`}
-              required
-            />
+            <TextField {...params} id="device-location" placeholder="Type address..." required />
           )}
         />
         <IconButton

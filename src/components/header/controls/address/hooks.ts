@@ -9,6 +9,7 @@ import { useDevicesContext } from "@/providers";
 import type { Device } from "@/types";
 
 import { filterOptions } from "./utils";
+
 const DEVICE_ZOOM = 15;
 const MIN_QUERY_LENGTH = 3;
 
@@ -18,16 +19,18 @@ export function useAddressField() {
   const [inputValue, setInputValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
+  const isQueryable = inputValue.trim().length >= MIN_QUERY_LENGTH;
+
   const options = useMemo(() => {
-    if (!isOpen) return [];
+    if (!isOpen || !isQueryable) return [];
 
     return filterOptions(inputValue, devices);
-  }, [devices, inputValue, isOpen]);
+  }, [devices, inputValue, isOpen, isQueryable]);
 
   const handleInputChange = useCallback((_: SyntheticEvent, value: string, reason: string) => {
     if (reason === "input") {
       setInputValue(value);
-      setIsOpen(value.trim().length >= MIN_QUERY_LENGTH);
+      setIsOpen(value.trim().length > 0);
       return;
     }
 
@@ -62,6 +65,12 @@ export function useAddressField() {
     [map],
   );
 
+  const noOptionsText = useMemo(
+    () =>
+      isQueryable ? "No devices found" : `Search should be at least ${MIN_QUERY_LENGTH} characters`,
+    [isQueryable],
+  );
+
   return {
     open: isOpen,
     onClose: () => setIsOpen(false),
@@ -69,5 +78,6 @@ export function useAddressField() {
     options,
     onInputChange: handleInputChange,
     onChange: handleSelect,
+    noOptionsText,
   };
 }
