@@ -1,5 +1,8 @@
 import type { BoxProps } from "@mui/material/Box";
 
-export type DevicePinProps = Omit<BoxProps, "children" | "value"> & {
-  value?: number | string;
-};
+import { DeviceCoordinates } from "@/types";
+
+export type DevicePinProps = Omit<BoxProps, "children" | "value"> &
+  DeviceCoordinates & {
+    value?: number | string;
+  };

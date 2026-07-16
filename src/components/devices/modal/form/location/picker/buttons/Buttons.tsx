@@ -8,7 +8,7 @@ import type { ButtonsProps } from "./types";
 
 export function Buttons({ onConfirm, onCancel }: ButtonsProps) {
   return (
-    <Stack direction="row" sx={styles.pickerActions}>
+    <Stack direction="row" sx={styles.root}>
       <Button
         variant="contained"
         color="primary"

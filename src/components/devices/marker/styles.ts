@@ -11,6 +11,12 @@ export const styles: StylesGroup = {
     borderRadius: "50%",
     cursor: "pointer",
     border: `${MARKER_BORDER}px solid transparent`,
+    opacity: 0,
+    animation: `device-marker-fade-in ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeOut} forwards`,
+    "@keyframes device-marker-fade-in": {
+      from: { opacity: 0 },
+      to: { opacity: 1 },
+    },
     transition: theme.transitions.create("border-color"),
     "&:hover, &.Mui-focusVisible, &.Mui-focused": {
       borderColor: theme.palette.text.primary,
