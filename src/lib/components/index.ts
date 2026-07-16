@@ -4,6 +4,7 @@ import { MuiAlert } from "./muiAlert";
 import { MuiBadge } from "./muiBadge";
 import { MuiButton } from "./muiButton";
 import { MuiCssBaseline } from "./muiCssBaseline";
+import { MuiDrawer } from "./muiDrawer";
 import { MuiFilledInput } from "./muiFilledInput";
 import { MuiMenu } from "./muiMenu";
 import { MuiMenuItem } from "./muiMenuItem";
@@ -18,6 +19,7 @@ export const components: Components<Theme> = {
   MuiCssBaseline,
   MuiAlert,
   MuiButton,
+  MuiDrawer,
   MuiFilledInput,
   MuiTextField,
   MuiSelect,
