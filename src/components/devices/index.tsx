@@ -1,3 +1,4 @@
+export { DeviceDrawer } from "./drawer";
 export { DeviceList } from "./list";
 export { DeviceMarker } from "./marker";
 export { DeviceMetric } from "./metric";
