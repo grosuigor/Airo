@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import { Map } from "@vis.gl/react-google-maps";
 
 import { DeviceMarker } from "@/components/devices";
-import { useDevicesContext } from "@/providers";
+import { useDevicesContext, useDeviceViewContext } from "@/providers";
 import { generateMapConfig } from "@/utils";
 
 import { MapControls } from "../controls";
@@ -16,6 +16,7 @@ const mapConfig = generateMapConfig("MAIN");
 
 export function MapView() {
   const { devices } = useDevicesContext();
+  const { inspect } = useDeviceViewContext();
   const { ready, onTilesLoaded, onIdle } = useMapReady();
 
   return (
@@ -34,6 +35,7 @@ export function MapView() {
               aria-label={`${device.name} marker`}
               latitude={device.coordinates.latitude}
               longitude={device.coordinates.longitude}
+              onClick={() => inspect(device.id)}
             />
           ))}
         <MapControls />

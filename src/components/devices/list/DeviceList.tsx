@@ -1,12 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useBackdropContext, useDevicesContext } from "@/providers";
+import { useBackdropContext, useDevicesContext, useDeviceViewContext } from "@/providers";
 
 import { DeviceModal } from "../modal";
 import { DevicePanel } from "../panel";
@@ -14,9 +14,17 @@ import { styles } from "./styles";
 
 export function DeviceList() {
   const { open } = useBackdropContext();
+  const { inspect } = useDeviceViewContext();
   const { devices } = useDevicesContext();
 
   const isEmpty = useMemo(() => devices.length === 0, [devices]);
+
+  const handlePanelClick = useCallback(
+    (deviceId: string) => {
+      inspect(deviceId);
+    },
+    [inspect],
+  );
 
   const content = useMemo(
     () =>
@@ -26,10 +34,23 @@ export function DeviceList() {
         </Typography>
       ) : (
         devices.map(({ id, name, location }) => (
-          <DevicePanel key={id} name={name} location={location} />
+          <DevicePanel
+            key={id}
+            name={name}
+            location={location}
+            onClick={() => handlePanelClick(id)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handlePanelClick(id);
+              }
+            }}
+          />
         ))
       ),
-    [devices, isEmpty],
+    [devices, isEmpty, handlePanelClick],
   );
 
   return (

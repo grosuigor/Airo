@@ -7,6 +7,12 @@ export const styles: StylesGroup = {
     bgcolor: "background.paper",
     borderRadius: `${theme.radii.control}px`,
     maxWidth: 351,
+    cursor: "pointer",
+    outline: "none",
+    transition: theme.transitions.create("background-color"),
+    "&:hover, &:focus-visible": {
+      bgcolor: "#4A525A",
+    },
   }),
   iconBox: {
     position: "relative",
