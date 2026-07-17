@@ -7,7 +7,7 @@ import { BackdropContext } from "./context";
 import { BackdropProviderProps } from "./types";
 
 export function BackdropProvider({ children, value: { id } }: BackdropProviderProps) {
-  const { push, pop, isOpen } = useGlobalBackdropContext();
+  const { push, pop, isOpen, includes } = useGlobalBackdropContext();
 
   const open = useCallback(() => {
     push(id);
@@ -21,6 +21,10 @@ export function BackdropProvider({ children, value: { id } }: BackdropProviderPr
     return isOpen(id);
   }, [id, isOpen]);
 
+  const isInStack = useMemo(() => {
+    return includes(id);
+  }, [id, includes]);
+
   const toggle = useCallback(() => {
     if (opened) {
       close();
@@ -30,7 +34,7 @@ export function BackdropProvider({ children, value: { id } }: BackdropProviderPr
   }, [opened, close, open]);
 
   return (
-    <BackdropContext.Provider value={{ open, close, toggle, opened }}>
+    <BackdropContext.Provider value={{ open, close, toggle, opened, isInStack }}>
       {children}
     </BackdropContext.Provider>
   );

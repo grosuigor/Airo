@@ -1,33 +1,37 @@
 "use client";
 
-import { startTransition, useCallback, useEffect, useState } from "react";
+import { startTransition, useCallback, useEffect, useMemo, useState } from "react";
 
 import { useBackdropContext } from "@/providers/backdrop";
 import { useDevicesContext } from "@/providers/devices";
-import type { Device } from "@/types";
 
 import { DeviceViewContext } from "./context";
 
 export function DeviceViewProvider({ children }: React.PropsWithChildren) {
   const { devices } = useDevicesContext();
-  const { opened, open } = useBackdropContext();
-  const [device, setDevice] = useState<Device | null>(null);
+  const { open, isInStack } = useBackdropContext();
+  const [deviceId, setDeviceId] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!opened) {
+    if (!isInStack) {
       startTransition(() => {
-        setDevice(null);
+        setDeviceId(null);
       });
     }
-  }, [opened]);
+  }, [isInStack]);
+
+  const device = useMemo(() => {
+    return devices.find((device) => device.id === deviceId) ?? null;
+  }, [devices, deviceId]);
 
   const inspect = useCallback(
-    (deviceId: string) => {
-      const device = devices.find((device) => device.id === deviceId);
-      if (device) {
-        setDevice(device);
-        open();
+    (id: string) => {
+      const index = devices.findIndex((device) => device.id === id);
+      if (index === -1) {
+        return;
       }
+      setDeviceId(id);
+      open();
     },
     [devices, open],
   );

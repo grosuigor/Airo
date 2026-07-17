@@ -1,19 +1,34 @@
+import { useMemo } from "react";
+
 import Dialog from "@mui/material/Dialog";
+import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { useBackdropContext } from "@/providers";
+import CloseIcon from "@mui/icons-material/Close";
+
+import { useBackdropContext, useDeviceViewContext } from "@/providers";
 
 import { Form } from "./form";
 import { styles } from "./styles";
 
 export function DeviceModal() {
   const { opened, close } = useBackdropContext();
+  const { device } = useDeviceViewContext();
+
+  const title = useMemo(() => {
+    return device ? `Edit ${device.name}` : "Add New";
+  }, [device]);
 
   return (
     <Dialog open={opened} onClose={close} sx={styles.root}>
       <Stack sx={styles.content}>
-        <Typography variant="h4">Add New</Typography>
+        <Stack direction="row" sx={styles.header}>
+          <Typography variant="h4">{title}</Typography>
+          <IconButton onClick={close}>
+            <CloseIcon />
+          </IconButton>
+        </Stack>
         <Form />
       </Stack>
     </Dialog>

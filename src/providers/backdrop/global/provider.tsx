@@ -66,6 +66,8 @@ export function BackdropProvider({ children }: { children: React.ReactNode }) {
   }, [handleKeyDown]);
 
   return (
-    <BackdropContext.Provider value={{ push, pop, isOpen }}>{children}</BackdropContext.Provider>
+    <BackdropContext.Provider value={{ push, pop, isOpen, includes }}>
+      {children}
+    </BackdropContext.Provider>
   );
 }

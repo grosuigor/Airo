@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -51,6 +51,10 @@ export function Form() {
     [device, changeField, setLocation],
   );
 
+  const saveLabel = useMemo(() => {
+    return device.id ? "Edit device" : "Add device";
+  }, [device.id]);
+
   return (
     <Grid container rowSpacing={2} columnSpacing={4} columns={2} component="form">
       {deviceFormFields.map((field) => (
@@ -72,7 +76,7 @@ export function Form() {
             onClick={saveDevice}
             disabled={!canSubmit}
           >
-            Add device
+            {saveLabel}
           </Button>
           <Button variant="outlined" color="primary" type="button" onClick={close}>
             Cancel

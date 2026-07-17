@@ -1,3 +1,5 @@
+"use client";
+
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
@@ -7,19 +9,22 @@ import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
+import { useBackdropContext } from "@/providers";
+
+import { EditButton } from "./editButton";
 import { styles } from "./styles";
 import type { HeaderProps } from "./types";
 
 export function Header({ device }: HeaderProps) {
+  const { close } = useBackdropContext();
+
   return (
     <Stack sx={styles.root}>
       <Stack direction="row" sx={styles.name}>
         <Typography variant="h4">{device.name}</Typography>
-        <IconButton size="small">
-          <EditIcon fontSize="small" />
-        </IconButton>
+        <EditButton />
         <Box sx={{ flexGrow: 1 }} />
-        <IconButton onClick={close} size="small">
+        <IconButton onClick={close} size="small" aria-label="Close">
           <CloseIcon fontSize="small" />
         </IconButton>
       </Stack>
