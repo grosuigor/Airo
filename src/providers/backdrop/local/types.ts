@@ -5,6 +5,7 @@ export type BackdropContextType = {
   close: () => void;
   toggle: () => void;
   opened: boolean;
+  isInStack: boolean;
 };
 
 type BackdropIdValue = "sidebarDrawer" | "deviceModal" | "deviceDrawer" | "metricsModal";
