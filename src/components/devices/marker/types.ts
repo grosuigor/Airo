@@ -1,9 +1,13 @@
-import type { IconButtonProps } from "@mui/material/IconButton";
+import type { BoxProps } from "@mui/material/Box";
 
 import { colors } from "@/lib/tokens";
+import type { DeviceCoordinates } from "@/types";
 
 type MarkerColor = keyof typeof colors.marker;
 
-export type DeviceMarkerProps = Omit<IconButtonProps, "children" | "color"> & {
-  color: MarkerColor;
-};
+export type DeviceMarkerProps = Omit<BoxProps, "children" | "color" | "onClick"> &
+  DeviceCoordinates & {
+    color: MarkerColor;
+    onClick?: () => void;
+    "aria-label"?: string;
+  };

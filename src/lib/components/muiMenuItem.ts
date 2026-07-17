@@ -8,17 +8,15 @@ export const MuiMenuItem: Components<Theme>["MuiMenuItem"] = {
       color: "#FFFFFF66",
       transition: theme.transitions.create("color"),
       "&:hover, &.Mui-focusVisible": {
-        color: theme.palette.text.primary,
-        backgroundColor: "transparent",
+        backgroundColor: theme.palette.background.default,
       },
       "&.Mui-selected": {
         backgroundColor: "transparent",
-        color: "#FFFFFF66",
+        color: "#FFFFFF",
         fontWeight: theme.typography.body1.fontWeight,
       },
       "&.Mui-selected:hover, &.Mui-selected.Mui-focusVisible, &.Mui-selected.Mui-focused": {
-        backgroundColor: "transparent",
-        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.background.default,
       },
       "&.Mui-disabled": {
         opacity: 1,

@@ -3,17 +3,18 @@
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 
+import { useBackdropContext } from "@/providers";
+
 import { SidebarButton } from "./button";
 import { SidebarContent } from "./content";
 import { SidebarHeader } from "./header";
-import { useSidebarContext } from "./providers";
 import { styles } from "./styles";
 
 function Sidebar() {
-  const { opened, close } = useSidebarContext();
+  const { opened, close } = useBackdropContext();
 
   return (
-    <Drawer anchor="right" open={opened} onClose={close} sx={styles.root}>
+    <Drawer open={opened} onClose={close}>
       <Stack sx={styles.container}>
         <SidebarHeader />
         <SidebarContent />

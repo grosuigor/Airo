@@ -1,9 +1,10 @@
 import type { Components, Theme } from "@mui/material/styles";
 
+import { MuiAlert } from "./muiAlert";
 import { MuiBadge } from "./muiBadge";
 import { MuiButton } from "./muiButton";
-import { MuiButtonGroup } from "./muiButtonGroup";
 import { MuiCssBaseline } from "./muiCssBaseline";
+import { MuiDrawer } from "./muiDrawer";
 import { MuiFilledInput } from "./muiFilledInput";
 import { MuiMenu } from "./muiMenu";
 import { MuiMenuItem } from "./muiMenuItem";
@@ -16,8 +17,9 @@ import { MuiTextField } from "./muiTextField";
 
 export const components: Components<Theme> = {
   MuiCssBaseline,
+  MuiAlert,
   MuiButton,
-  MuiButtonGroup,
+  MuiDrawer,
   MuiFilledInput,
   MuiTextField,
   MuiSelect,

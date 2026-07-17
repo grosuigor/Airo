@@ -1,26 +1,25 @@
 "use client";
 
-import Badge from "@mui/material/Badge";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 
-import { Sidebar, SidebarProvider } from "../sidebar";
+import { BackdropProvider } from "@/providers";
+
+import { Sidebar } from "../sidebar";
 import { styles } from "./styles";
 
 export function Profile() {
   return (
-    <SidebarProvider>
+    <BackdropProvider value={{ id: "sidebarDrawer" }}>
       <Stack direction="row" spacing={1.5} sx={styles.root}>
         <Sidebar />
         <IconButton aria-label="show new notifications" size="small">
-          <Badge variant="dot">
-            <NotificationsIcon />
-          </Badge>
+          <NotificationsOutlinedIcon />
         </IconButton>
         <Sidebar.Button />
       </Stack>
-    </SidebarProvider>
+    </BackdropProvider>
   );
 }

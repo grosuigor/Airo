@@ -10,21 +10,17 @@ export const MuiSelect: Components<Theme>["MuiSelect"] = {
     disableUnderline: true,
   },
   styleOverrides: {
-    filled: ({ theme, ownerState }) => ({
+    filled: ({ theme }) => ({
       display: "flex",
       alignItems: "center",
       padding: 0,
       paddingLeft: 12,
+      backgroundColor: "transparent",
       transition: theme.transitions.create("background-color"),
       "&:hover, &.Mui-focused": {
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: "transparent",
       },
-      ...(ownerState.open && {
-        backgroundColor: theme.palette.primary.light,
-        outline: "none",
-      }),
       "&.Mui-disabled": {
-        backgroundColor: theme.palette.background.paper,
         WebkitTextFillColor: theme.palette.text.disabled,
       },
     }),

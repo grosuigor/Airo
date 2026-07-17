@@ -10,6 +10,11 @@ export const colors = {
     gradientStart: "#A154F2",
     gradientEnd: "#8643E8",
   },
+  secondary: {
+    main: "#7C00A8",
+    light: "#9E00D6",
+    dark: "#550075",
+  },
   text: {
     primary: "#FFFFFF",
     secondary: "rgba(255, 255, 255, 0.6)",
@@ -56,8 +61,9 @@ export const radii = {
 
 export const sizes = {
   buttonHeight: 40,
-  inputHeight: 30,
+  inputHeight: 36,
   tabHeight: 34,
+  switchHeight: 30,
 } as const;
 
 export const chartSizes = {

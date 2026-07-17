@@ -1,7 +1,8 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import { combineSx } from "../combineSx";
+import { combineSx } from "@/components/combineSx";
+
 import { styles } from "./styles";
 import type { DeviceMetricProps } from "./types";
 
