@@ -1,3 +1,6 @@
+import type { Device } from "@/types";
+
+import { DEVICE_METRICS } from "../../data";
 import type { FormField } from "./types";
 
 export const deviceFormFields: Array<FormField> = [
@@ -28,3 +31,16 @@ export const deviceFormFields: Array<FormField> = [
     multiple: true,
   },
 ];
+
+export const DUMMY_DEVICE: Device = {
+  id: "",
+  name: "",
+  location: "",
+  coordinates: {
+    latitude: 0,
+    longitude: 0,
+  },
+  description: "",
+  metrics: [...DEVICE_METRICS],
+  key: "",
+};

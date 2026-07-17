@@ -72,7 +72,7 @@ export function Form() {
             onClick={saveDevice}
             disabled={!canSubmit}
           >
-            Add device
+            {device.id ? "Edit device" : "Add device"}
           </Button>
           <Button variant="outlined" color="primary" type="button" onClick={close}>
             Cancel

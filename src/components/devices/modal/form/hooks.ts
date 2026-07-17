@@ -1,29 +1,24 @@
 import { type MouseEvent, useCallback, useState } from "react";
 
-import { useBackdropContext, useDevicesDispatchContext, useToastContext } from "@/providers";
+import {
+  useBackdropContext,
+  useDevicesDispatchContext,
+  useDeviceViewContext,
+  useToastContext,
+} from "@/providers";
 import type { Device, LocationSelection } from "@/types";
 import { generateId } from "@/utils";
 import { hasValidCoordinates } from "@/utils";
 
-import { DEVICE_METRICS } from "../../data";
+import { DUMMY_DEVICE } from "./data";
 
 export function useDeviceForm() {
   const dispatch = useDevicesDispatchContext();
+  const { device: editableDevice } = useDeviceViewContext();
   const { close } = useBackdropContext();
   const { showToast } = useToastContext();
 
-  const [device, setDevice] = useState<Device>({
-    id: "",
-    name: "",
-    location: "",
-    coordinates: {
-      latitude: 0,
-      longitude: 0,
-    },
-    description: "",
-    metrics: [...DEVICE_METRICS],
-    key: "",
-  });
+  const [device, setDevice] = useState<Device>(editableDevice ?? DUMMY_DEVICE);
 
   const changeField = useCallback((field: keyof Device, value: Device[keyof Device]) => {
     setDevice((prev) => ({ ...prev, [field]: value }));
@@ -41,6 +36,17 @@ export function useDeviceForm() {
     device.metrics.length > 0 &&
     hasValidCoordinates(device.coordinates);
 
+  const addDevice = useCallback(() => {
+    const id = generateId();
+    dispatch({ type: "ADD", payload: { ...device, id } });
+    showToast("The device was added.", "success");
+  }, [device, dispatch, showToast]);
+
+  const editDevice = useCallback(() => {
+    dispatch({ type: "UPDATE", payload: { device } });
+    showToast("The device was edited.", "success");
+  }, [device, dispatch, showToast]);
+
   const saveDevice = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -53,12 +59,14 @@ export function useDeviceForm() {
         showToast("Select an address from the list or pick a point on the map.", "error");
         return;
       }
-      const id = generateId();
-      dispatch({ type: "ADD", payload: { ...device, id } });
       close();
-      showToast("The device was added.", "success");
+      if (device.id !== "") {
+        editDevice();
+      } else {
+        addDevice();
+      }
     },
-    [device, dispatch, close, showToast],
+    [device, close, showToast, editDevice, addDevice],
   );
 
   return {

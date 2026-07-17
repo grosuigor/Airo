@@ -11,13 +11,10 @@ export const styles: StylesGroup = {
   },
   content: {
     gap: 6,
-    p: 2.5,
+    p: 4,
   },
-  buttonsContainer: {
-    gap: 2,
-
-    "& > button": {
-      flex: 1,
-    },
+  header: {
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 };
