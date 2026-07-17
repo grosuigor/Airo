@@ -7,6 +7,6 @@ export type BackdropContextType = {
   opened: boolean;
 };
 
-type BackdropIdValue = "sidebarDrawer" | "deviceModal" | "metricsModal";
+type BackdropIdValue = "sidebarDrawer" | "deviceModal" | "deviceDrawer" | "metricsModal";
 
 export type BackdropProviderProps = ProviderProps<{ id: BackdropIdValue }>;

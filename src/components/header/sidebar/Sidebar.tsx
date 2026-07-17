@@ -14,16 +14,7 @@ function Sidebar() {
   const { opened, close } = useBackdropContext();
 
   return (
-    <Drawer
-      anchor="right"
-      open={opened}
-      onClose={close}
-      sx={styles.root}
-      variant="persistent"
-      ModalProps={{
-        keepMounted: true,
-      }}
-    >
+    <Drawer open={opened} onClose={close}>
       <Stack sx={styles.container}>
         <SidebarHeader />
         <SidebarContent />
