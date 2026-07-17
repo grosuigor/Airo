@@ -15,12 +15,12 @@ export function devicesReducer(
       };
     case "REMOVE":
       return {
-        devices: state.devices.filter((_, index) => index !== action.payload),
+        devices: state.devices.filter((device) => device.id !== action.payload),
       };
     case "UPDATE":
       return {
-        devices: state.devices.map((device, index) =>
-          index === action.payload.index ? action.payload.device : device,
+        devices: state.devices.map((device) =>
+          device.id === action.payload.device.id ? action.payload.device : device,
         ),
       };
     case "SET":

@@ -8,8 +8,8 @@ export type DevicesContextType = {
 
 export type DevicesAction =
   | { type: "ADD"; payload: Device }
-  | { type: "REMOVE"; payload: number }
-  | { type: "UPDATE"; payload: { index: number; device: Device } }
+  | { type: "REMOVE"; payload: string }
+  | { type: "UPDATE"; payload: { device: Device } }
   | { type: "SET"; payload: Device[] };
 
 export type DevicesDispatchContextType = Dispatch<DevicesAction>;
