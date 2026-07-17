@@ -11,7 +11,7 @@ import { colors } from "@/lib/tokens";
 
 import { MARKER_CENTER, MARKER_RING_PATH, MARKER_SIZE } from "./data";
 import { useDeviceMarker } from "./hooks";
-import { styles } from "./styles";
+import { globalStyles, styles } from "./styles";
 import type { DeviceMarkerProps } from "./types";
 
 export function DeviceMarker({
@@ -30,16 +30,7 @@ export function DeviceMarker({
 
   return (
     <>
-      <GlobalStyles
-        styles={{
-          "gmp-advanced-marker": {
-            outline: "none",
-          },
-          "gmp-advanced-marker:focus, gmp-advanced-marker:focus-visible": {
-            outline: "none",
-          },
-        }}
-      />
+      <GlobalStyles styles={globalStyles} />
       <AdvancedMarker
         ref={advancedMarkerRef}
         position={{

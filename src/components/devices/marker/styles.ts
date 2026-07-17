@@ -1,6 +1,17 @@
+import type { Interpolation, Theme } from "@mui/material/styles";
+
 import type { StylesGroup } from "@/lib/theme";
 
 import { MARKER_BORDER, MARKER_BOX_SIZE, MARKER_RING_OFFSET, MARKER_SIZE } from "./data";
+
+export const globalStyles: Interpolation<Theme> = {
+  "gmp-advanced-marker": {
+    outline: "none",
+  },
+  "gmp-advanced-marker:focus, gmp-advanced-marker:focus-visible": {
+    outline: "none",
+  },
+};
 
 export const styles: StylesGroup = {
   root: (theme) => ({
