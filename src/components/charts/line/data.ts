@@ -1,0 +1,19 @@
+import {
+  HORIZONTAL_TICKS_HEIGHT,
+  TICK_FONT_SIZE,
+  VERTICAL_TICKS_WIDTH,
+  Y_TICK_COUNT,
+} from "./ticks";
+
+export const PLOT_WIDTH = 280;
+export const PLOT_HEIGHT = 140;
+
+export const PLOT_TOP = TICK_FONT_SIZE / 2;
+export const PLOT_LEFT = VERTICAL_TICKS_WIDTH;
+export const PLOT_RIGHT = PLOT_LEFT + PLOT_WIDTH;
+export const PLOT_BOTTOM = PLOT_TOP + PLOT_HEIGHT;
+
+export const SVG_WIDTH = PLOT_RIGHT;
+export const SVG_HEIGHT = PLOT_BOTTOM + HORIZONTAL_TICKS_HEIGHT;
+
+export { Y_TICK_COUNT };

@@ -1,7 +1,10 @@
-import type { ChartProps } from "../radialGauge";
+import { type MetricColor } from "@/lib/tokens";
 
-export type ArcChartProps = ChartProps & {
-  title: string;
-  subtitle: string;
-  value: string;
-};
+import type { ChartProps } from "../types";
+import type { ContainerProps } from "./container";
+
+export type ArcChartProps = ChartProps &
+  Omit<ContainerProps, "children"> & {
+    progress: number;
+    color: MetricColor;
+  };
