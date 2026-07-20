@@ -5,7 +5,7 @@ export const MuiMenuItem: Components<Theme>["MuiMenuItem"] = {
     root: ({ theme }) => ({
       minHeight: 36,
       ...theme.typography.body1,
-      color: "#FFFFFF66",
+      color: "#FFFFFF",
       transition: theme.transitions.create("color"),
       "&:hover, &.Mui-focusVisible": {
         backgroundColor: theme.palette.background.default,

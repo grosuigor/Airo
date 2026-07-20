@@ -1,9 +1,12 @@
 "use client";
 
+import Box from "@mui/material/Box";
+
 import { Chart } from "../Chart";
 import { Container } from "./container";
 import { CENTER, CIRCLE_TYPES, RADIUS, ROTATION, SIZE, STROKE_WIDTH } from "./data";
 import { useArcChart } from "./hooks";
+import { styles } from "./styles";
 import type { ArcChartProps } from "./types";
 
 export function ArcChart({ progress, color, ...props }: ArcChartProps) {
@@ -15,7 +18,13 @@ export function ArcChart({ progress, color, ...props }: ArcChartProps) {
   return (
     <Chart {...props}>
       <Container {...props}>
-        <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`}>
+        <Box
+          component="svg"
+          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          sx={styles.svg}
+          role="img"
+          aria-label="Metric gauge"
+        >
           <defs>
             <linearGradient
               id={gradient.id}
@@ -43,7 +52,7 @@ export function ArcChart({ progress, color, ...props }: ArcChartProps) {
               transform={`rotate(${ROTATION} ${CENTER} ${CENTER})`}
             />
           ))}
-        </svg>
+        </Box>
       </Container>
     </Chart>
   );

@@ -1,11 +1,11 @@
 import type { StylesGroup } from "@/lib/theme";
 
-import { SIZE } from "../data";
-
 export const styles: StylesGroup = {
   chartContainer: {
     position: "relative",
-    width: SIZE,
+    width: "55%",
+    maxWidth: 160,
+    minWidth: 72,
     aspectRatio: 1,
     display: "grid",
     placeItems: "center",
