@@ -12,7 +12,6 @@ export const styles: StylesGroup = {
   panel: {
     gridArea: "1 / 1",
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
     gap: 2,
     '&[data-active="false"]': {
       pointerEvents: "none",
