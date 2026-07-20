@@ -1,3 +1,3 @@
-import type { ChartsProps } from "../../types";
+import type { MetricsViewProps } from "../../types";
 
-export type IndividualProps = ChartsProps;
+export type IndividualProps = MetricsViewProps;

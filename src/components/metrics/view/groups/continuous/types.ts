@@ -1,5 +1,5 @@
-import type { ChartsProps } from "../../types";
+import type { MetricsViewProps } from "../../types";
 
-export type ContinuousProps = ChartsProps & {
+export type ContinuousProps = MetricsViewProps & {
   type: "today" | "week";
 };
