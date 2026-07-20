@@ -9,7 +9,7 @@ import Switch from "@mui/material/Switch";
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-import { DeviceMarker, DeviceMetric, DevicePin } from "@/components/devices";
+import { DeviceMarker, DevicePin } from "@/components/devices";
 
 export function LogoAndIconsShowcase() {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -59,7 +59,6 @@ export function LogoAndIconsShowcase() {
             }}
           />
           <Switch checked={switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
-          <DeviceMetric label="CO2" value="696.5" />
         </Stack>
       </Stack>
     </Stack>
