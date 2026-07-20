@@ -11,6 +11,13 @@ export const MuiTab: Components<Theme>["MuiTab"] = {
       ...theme.typography.body1,
       color: theme.palette.text.secondary,
       textTransform: "none",
+      transition: theme.transitions.create(["background-color", "color", "box-shadow"], {
+        duration: theme.transitions.duration.shorter,
+      }),
+      "&:hover, &.Mui-focusVisible": {
+        backgroundColor: theme.palette.primary.light,
+        color: theme.palette.text.primary,
+      },
       "&.Mui-selected": {
         backgroundColor: theme.palette.primary.main,
         color: theme.palette.text.primary,
