@@ -4,8 +4,6 @@ import { useId, useMemo } from "react";
 
 import { colors, type MetricColor } from "@/lib/tokens";
 
-export type { MetricColor };
-
 export function useMetricGradient(color: MetricColor) {
   const id = useId();
 

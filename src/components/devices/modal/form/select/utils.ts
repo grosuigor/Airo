@@ -1,4 +1,4 @@
-import { DEVICE_METRIC_LABELS, DEVICE_METRICS } from "@/components/devices/data";
+import { DEVICE_METRIC_LABELS, DEVICE_METRICS } from "@/constants";
 import type { DeviceMetrics } from "@/types";
 
 export function renderValue(selected: DeviceMetrics[]) {
