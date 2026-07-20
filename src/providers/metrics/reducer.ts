@@ -12,6 +12,10 @@ export function metricsReducer(
 ): MetricsContextType {
   switch (action.type) {
     case "ADD":
+      if (state.metrics.includes(action.payload)) {
+        return state;
+      }
+
       return {
         metrics: [...state.metrics, action.payload],
       };

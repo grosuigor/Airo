@@ -1,4 +1,3 @@
-import { DEVICE_METRICS } from "@/constants";
 import type { DetailedDevice } from "@/types";
 
 import type { FormField } from "./types";
@@ -41,6 +40,6 @@ export const DUMMY_DEVICE: DetailedDevice = {
     longitude: 0,
   },
   description: "",
-  metrics: [...DEVICE_METRICS],
+  metrics: [],
   key: "",
 };
