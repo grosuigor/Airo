@@ -1,7 +1,7 @@
 import type { BoxProps } from "@mui/material/Box";
 
-import type { DeviceMetricData } from "@/types";
+import type { Device } from "@/types";
 
 export type DevicePinProps = Omit<BoxProps, "children" | "value"> & {
-  device: DeviceMetricData;
+  device: Device;
 };

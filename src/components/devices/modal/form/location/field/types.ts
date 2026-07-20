@@ -1,9 +1,9 @@
-import type { DeviceCoordinates, LocationSelection } from "@/types";
+import type { Coordinates, Place } from "@/types";
 
 export type LocationFieldProps = {
   location: string;
-  coordinates: DeviceCoordinates;
-  onLocationChange: (selection: LocationSelection) => void;
+  coordinates: Coordinates;
+  onLocationChange: (selection: Place) => void;
 };
 
 export type { SuggestionOption } from "../common";

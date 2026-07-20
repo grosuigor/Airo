@@ -1,9 +1,9 @@
 import type { BoxProps } from "@mui/material/Box";
 
-import type { DeviceMetricData } from "@/types";
+import type { Device } from "@/types";
 
 export type DeviceMarkerProps = Omit<BoxProps, "children" | "onClick"> & {
-  device: DeviceMetricData;
+  device: Device;
   onClick?: () => void;
   "aria-label"?: string;
 };

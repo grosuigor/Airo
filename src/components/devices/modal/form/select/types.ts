@@ -1,6 +1,6 @@
-import type { DeviceMetrics } from "@/types";
+import type { Metric } from "@/types";
 
 export type SelectFieldProps = {
-  metrics: DeviceMetrics[];
-  changeField: (field: "metrics", value: string | DeviceMetrics[]) => void;
+  metrics: Metric[];
+  changeField: (field: "metrics", value: string | Metric[]) => void;
 };

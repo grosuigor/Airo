@@ -1,5 +1,5 @@
 import { DEVICE_METRICS } from "@/constants";
-import type { Device } from "@/types";
+import type { DetailedDevice } from "@/types";
 
 import type { FormField } from "./types";
 
@@ -32,7 +32,7 @@ export const deviceFormFields: Array<FormField> = [
   },
 ];
 
-export const DUMMY_DEVICE: Device = {
+export const DUMMY_DEVICE: DetailedDevice = {
   id: "",
   name: "",
   location: "",

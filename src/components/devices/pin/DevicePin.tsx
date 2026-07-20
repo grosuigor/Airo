@@ -10,7 +10,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { AdvancedMarker } from "@vis.gl/react-google-maps";
 
 import { colors } from "@/lib/tokens";
-import { combineSx, getDeviceReadings } from "@/utils";
+import { combineSx, getDeviceScore } from "@/utils";
 
 import { PIN_HEIGHT } from "./data";
 import { styles } from "./styles";
@@ -18,9 +18,7 @@ import type { DevicePinProps } from "./types";
 
 export function DevicePin({ device, sx, ...props }: DevicePinProps) {
   const gradientId = useId().replaceAll(":", "");
-  const {
-    overall: { score, quality },
-  } = useMemo(() => getDeviceReadings(device), [device]);
+  const { value, quality } = useMemo(() => getDeviceScore(device), [device]);
   const { start, end } = useMemo(() => colors.marker[quality], [quality]);
 
   return (
@@ -48,7 +46,7 @@ export function DevicePin({ device, sx, ...props }: DevicePinProps) {
         />
         <Box sx={styles.circle}>
           <Typography variant="micro" sx={styles.value}>
-            {score}
+            {value}
           </Typography>
         </Box>
       </Box>

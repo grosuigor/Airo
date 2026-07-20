@@ -1,5 +1,5 @@
 import { LOCATION_MAP_PROPS } from "@/constants";
-import type { DeviceCoordinates } from "@/types";
+import type { Coordinates } from "@/types";
 
 const ORIGIN_COORDINATES = LOCATION_MAP_PROPS.defaultCenter!;
 const KILOMETERS_PER_DEGREE = 111.32;
@@ -23,17 +23,19 @@ const X_FACTOR = Math.cos((ORIGIN_COORDINATES.lat * Math.PI) / 180);
 /**
  * Maps device coordinates to a smoothly oscillating value, based on the time of day.
  *
- * @param coordinates Device latitude and longitude.
- * @param metricIndex Metric channel in the range [0, 5].
+ * @param coordinates DetailedDevice latitude and longitude.
+ * @param metricIndex Metric channel in the range [0, ALL_METRICS_COUNT - 1].
+ * @param atMs Timestamp to sample (defaults to now). Use past times for historical series.
  * @returns A deterministic value in the range [0, 1].
  */
 export function generatePseudoRandomNumber(
-  coordinates: DeviceCoordinates,
+  coordinates: Coordinates,
   metricIndex = 0,
+  atMs?: number,
 ): number {
   const { latitude, longitude } = coordinates;
 
-  const hours = Math.floor(Date.now() / MILLISECONDS_PER_HOUR);
+  const hours = Math.floor((atMs ?? Date.now()) / MILLISECONDS_PER_HOUR);
   const channelPhase = metricIndex * METRIC_CHANNEL_PHASE;
 
   // Convert coordinates to local kilometers.

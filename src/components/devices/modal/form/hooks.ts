@@ -6,7 +6,7 @@ import {
   useDeviceViewContext,
   useToastContext,
 } from "@/providers";
-import type { Device, LocationSelection } from "@/types";
+import type { DetailedDevice, Place } from "@/types";
 import { generateId } from "@/utils";
 import { hasValidCoordinates } from "@/utils";
 
@@ -18,13 +18,16 @@ export function useDeviceForm() {
   const { close } = useBackdropContext();
   const { showToast } = useToastContext();
 
-  const [device, setDevice] = useState<Device>(editableDevice ?? DUMMY_DEVICE);
+  const [device, setDevice] = useState<DetailedDevice>(editableDevice ?? DUMMY_DEVICE);
 
-  const changeField = useCallback((field: keyof Device, value: Device[keyof Device]) => {
-    setDevice((prev) => ({ ...prev, [field]: value }));
-  }, []);
+  const changeField = useCallback(
+    (field: keyof DetailedDevice, value: DetailedDevice[keyof DetailedDevice]) => {
+      setDevice((prev) => ({ ...prev, [field]: value }));
+    },
+    [],
+  );
 
-  const setLocation = useCallback(({ location, coordinates }: LocationSelection) => {
+  const setLocation = useCallback(({ location, coordinates }: Place) => {
     setDevice((prev) => ({ ...prev, location, coordinates }));
   }, []);
 

@@ -8,7 +8,7 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import { AdvancedMarker } from "@vis.gl/react-google-maps";
 
 import { colors } from "@/lib/tokens";
-import { getDeviceReadings } from "@/utils";
+import { getDeviceScore } from "@/utils";
 
 import { MARKER_CENTER, MARKER_RING_PATH, MARKER_SIZE } from "./data";
 import { useDeviceMarker } from "./hooks";
@@ -23,9 +23,7 @@ export function DeviceMarker({
   ...props
 }: DeviceMarkerProps) {
   const id = useId();
-  const {
-    overall: { quality },
-  } = useMemo(() => getDeviceReadings(device), [device]);
+  const { quality } = useMemo(() => getDeviceScore(device), [device]);
   const gradientId = useMemo(() => `${id}-${quality}`, [id, quality]);
   const { start, end } = useMemo(() => colors.marker[quality], [quality]);
   const { advancedMarkerRef, eventListeners, isActive } = useDeviceMarker();

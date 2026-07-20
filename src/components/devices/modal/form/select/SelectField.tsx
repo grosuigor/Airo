@@ -5,7 +5,7 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-import type { DeviceMetrics } from "@/types";
+import type { Metric } from "@/types";
 
 import { metricsOptions } from "./data";
 import type { SelectFieldProps } from "./types";
@@ -13,7 +13,7 @@ import { renderValue } from "./utils";
 
 export function SelectField({ metrics, changeField }: SelectFieldProps) {
   const changeMetrics = useCallback(
-    (event: SelectChangeEvent<DeviceMetrics[]>) => {
+    (event: SelectChangeEvent<Metric[]>) => {
       changeField("metrics", event.target.value);
     },
     [changeField],
