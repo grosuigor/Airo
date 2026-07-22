@@ -9,14 +9,11 @@ export const styles: StylesGroup = {
     bgcolor: theme.palette.background.paper,
     boxShadow: "0px 14.6px 19.5px rgba(0, 0, 0, 0.1)",
     gap: 1,
+    transition: theme.transitions.create("opacity"),
+    '&[data-hidden="true"]': {
+      opacity: 0.4,
+    },
   }),
-  dots: {
-    position: "absolute",
-    top: 4,
-    right: 4,
-    color: "text.primary",
-    p: 0.5,
-  },
   title: {
     color: "text.primary",
     pr: 3,

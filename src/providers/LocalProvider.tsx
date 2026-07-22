@@ -5,6 +5,7 @@ import { GlobalBackdropProvider } from "./backdrop";
 import { DevicesProvider } from "./devices";
 import { DeviceViewProvider } from "./deviceView";
 import { MapProvider } from "./MapProvider";
+import { MetricsProvider } from "./metrics";
 import { ToastProvider } from "./toast";
 
 export function LocalProvider({ children }: React.PropsWithChildren) {
@@ -12,11 +13,13 @@ export function LocalProvider({ children }: React.PropsWithChildren) {
     <MapProvider>
       <AuthProvider>
         <DevicesProvider>
-          <ToastProvider>
-            <GlobalBackdropProvider>
-              <DeviceViewProvider>{children}</DeviceViewProvider>
-            </GlobalBackdropProvider>
-          </ToastProvider>
+          <MetricsProvider>
+            <ToastProvider>
+              <GlobalBackdropProvider>
+                <DeviceViewProvider>{children}</DeviceViewProvider>
+              </GlobalBackdropProvider>
+            </ToastProvider>
+          </MetricsProvider>
         </DevicesProvider>
       </AuthProvider>
     </MapProvider>

@@ -4,6 +4,7 @@ import {
   useBackdropContext,
   useDevicesDispatchContext,
   useDeviceViewContext,
+  useMetricsContext,
   useToastContext,
 } from "@/providers";
 import type { DetailedDevice, Place } from "@/types";
@@ -14,11 +15,14 @@ import { DUMMY_DEVICE } from "./data";
 
 export function useDeviceForm() {
   const dispatch = useDevicesDispatchContext();
+  const { metrics } = useMetricsContext();
   const { device: editableDevice } = useDeviceViewContext();
   const { close } = useBackdropContext();
   const { showToast } = useToastContext();
 
-  const [device, setDevice] = useState<DetailedDevice>(editableDevice ?? DUMMY_DEVICE);
+  const [device, setDevice] = useState<DetailedDevice>(
+    editableDevice ?? { ...DUMMY_DEVICE, metrics },
+  );
 
   const changeField = useCallback(
     (field: keyof DetailedDevice, value: DetailedDevice[keyof DetailedDevice]) => {
