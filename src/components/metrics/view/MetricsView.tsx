@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
@@ -9,6 +9,7 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
 import { METRICS_VIEW_TABS } from "./data";
+import { Empty } from "./empty";
 import { Continuous, Individual } from "./groups";
 import { styles } from "./styles";
 import type { MetricsViewProps, MetricsViewTab } from "./types";
@@ -16,6 +17,8 @@ import type { MetricsViewProps, MetricsViewTab } from "./types";
 export function MetricsView({ device, columns = 2 }: MetricsViewProps) {
   const theme = useTheme();
   const [tab, setTab] = useState<MetricsViewTab>("hour");
+
+  const isEmpty = useMemo(() => device.metrics.length === 0, [device.metrics]);
 
   return (
     <Stack sx={styles.root}>
@@ -26,6 +29,8 @@ export function MetricsView({ device, columns = 2 }: MetricsViewProps) {
       </Tabs>
 
       <Stack sx={styles.panels}>
+        {isEmpty && <Empty />}
+
         {METRICS_VIEW_TABS.map(({ value }) => {
           const active = tab === value;
 
