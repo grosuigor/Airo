@@ -9,7 +9,7 @@ import Switch from "@mui/material/Switch";
 
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-import { DeviceMarker, DeviceMetric, DevicePin } from "../devices";
+import { DeviceMarker, DeviceMetric, DevicePin } from "@/components/devices";
 
 export function LogoAndIconsShowcase() {
   const [switchChecked, setSwitchChecked] = useState(false);
@@ -30,14 +30,34 @@ export function LogoAndIconsShowcase() {
             </IconButton>
           </Stack>
           <Stack spacing={1}>
-            <DeviceMarker color="green" latitude={51.5074} longitude={-0.1278} />
-            <DeviceMarker color="orange" latitude={51.5074} longitude={-0.1278} />
-            <DeviceMarker color="red" latitude={51.5074} longitude={-0.1278} />
+            <DeviceMarker
+              device={{
+                coordinates: { latitude: 51.5074, longitude: -0.1278 },
+                metrics: ["temperature", "humidity"],
+              }}
+            />
+            <DeviceMarker
+              device={{
+                coordinates: { latitude: 51.5074, longitude: -0.1278 },
+                metrics: ["co2", "pm25"],
+              }}
+            />
+            <DeviceMarker
+              device={{
+                coordinates: { latitude: 51.5074, longitude: -0.1278 },
+                metrics: ["pm10", "pressure", "co2"],
+              }}
+            />
           </Stack>
         </Stack>
 
         <Stack spacing={3}>
-          <DevicePin value={7.8} latitude={51.5074} longitude={-0.1278} />
+          <DevicePin
+            device={{
+              coordinates: { latitude: 51.5074, longitude: -0.1278 },
+              metrics: ["pm25", "pm10", "co2"],
+            }}
+          />
           <Switch checked={switchChecked} onChange={() => setSwitchChecked(!switchChecked)} />
           <DeviceMetric label="CO2" value="696.5" />
         </Stack>

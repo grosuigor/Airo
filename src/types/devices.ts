@@ -14,3 +14,5 @@ export type Device = {
   metrics: DeviceMetrics[];
   key: string;
 };
+
+export type DeviceMetricData = Pick<Device, "coordinates" | "metrics">;

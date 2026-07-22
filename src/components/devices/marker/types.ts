@@ -1,13 +1,9 @@
 import type { BoxProps } from "@mui/material/Box";
 
-import { colors } from "@/lib/tokens";
-import type { DeviceCoordinates } from "@/types";
+import type { DeviceMetricData } from "@/types";
 
-type MarkerColor = keyof typeof colors.marker;
-
-export type DeviceMarkerProps = Omit<BoxProps, "children" | "color" | "onClick"> &
-  DeviceCoordinates & {
-    color: MarkerColor;
-    onClick?: () => void;
-    "aria-label"?: string;
-  };
+export type DeviceMarkerProps = Omit<BoxProps, "children" | "onClick"> & {
+  device: DeviceMetricData;
+  onClick?: () => void;
+  "aria-label"?: string;
+};

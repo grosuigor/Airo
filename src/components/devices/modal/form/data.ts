@@ -1,6 +1,6 @@
+import { DEVICE_METRICS } from "@/constants";
 import type { Device } from "@/types";
 
-import { DEVICE_METRICS } from "../../data";
 import type { FormField } from "./types";
 
 export const deviceFormFields: Array<FormField> = [
