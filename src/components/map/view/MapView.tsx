@@ -31,10 +31,8 @@ export function MapView() {
           devices.map((device) => (
             <DeviceMarker
               key={device.id}
-              color="green"
               aria-label={`${device.name} marker`}
-              latitude={device.coordinates.latitude}
-              longitude={device.coordinates.longitude}
+              device={device}
               onClick={() => inspect(device.id)}
             />
           ))}

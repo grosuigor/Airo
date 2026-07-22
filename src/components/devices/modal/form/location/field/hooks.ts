@@ -1,14 +1,14 @@
 import { type SyntheticEvent, useCallback, useState } from "react";
 
 import { EMPTY_COORDINATES } from "@/constants";
-import type { LocationSelection } from "@/types";
+import type { Place } from "@/types";
 
 import { useAutocompleteSuggestions, useSelectPlaceSuggestion } from "../common";
 import type { SuggestionOption } from "./types";
 
 const MIN_QUERY_LENGTH = 3;
 
-type onLocationChangeFn = (selection: LocationSelection) => void;
+type onLocationChangeFn = (selection: Place) => void;
 
 export function useLocationField(onLocationChange: onLocationChangeFn) {
   const [open, setOpen] = useState(false);
@@ -58,7 +58,7 @@ export function useLocationField(onLocationChange: onLocationChangeFn) {
   );
 
   const handlePickerConfirm = useCallback(
-    (selection: LocationSelection) => {
+    (selection: Place) => {
       onLocationChange(selection);
       stopSuggesting();
     },

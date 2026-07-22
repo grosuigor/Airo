@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Map } from "@vis.gl/react-google-maps";
 
 import { DeviceMarker, DevicePin } from "@/components/devices";
+import { DEVICE_METRICS } from "@/constants";
 import { useDevicesContext } from "@/providers";
 import { generateMapConfig } from "@/utils";
 
@@ -36,21 +37,20 @@ export function LocationPicker({ open, coordinates, onClose, onConfirm }: Locati
         <Box sx={styles.mapContainer}>
           <Map {...mapConfig} style={{ height: "100%", width: "100%" }} onClick={handleMapClick}>
             {devices.map((device) => (
-              <DeviceMarker
-                key={device.id}
-                color="green"
-                aria-label={`${device.name} marker`}
-                latitude={device.coordinates.latitude}
-                longitude={device.coordinates.longitude}
-              />
+              <DeviceMarker key={device.id} aria-label={`${device.name} marker`} device={device} />
             ))}
             {markerPosition && (
-              <DevicePin latitude={markerPosition.lat} longitude={markerPosition.lng} />
+              <DevicePin
+                device={{
+                  coordinates: { latitude: markerPosition.lat, longitude: markerPosition.lng },
+                  metrics: DEVICE_METRICS,
+                }}
+              />
             )}
           </Map>
         </Box>
         <Typography variant="body2" sx={styles.hint}>
-          {location ?? "loading..."}
+          {location || "loading..."}
         </Typography>
         <Buttons onConfirm={handleConfirm} onCancel={onClose} />
       </Stack>

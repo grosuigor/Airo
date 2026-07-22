@@ -8,6 +8,7 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import { AdvancedMarker } from "@vis.gl/react-google-maps";
 
 import { colors } from "@/lib/tokens";
+import { getDeviceScore } from "@/utils";
 
 import { MARKER_CENTER, MARKER_RING_PATH, MARKER_SIZE } from "./data";
 import { useDeviceMarker } from "./hooks";
@@ -15,17 +16,16 @@ import { globalStyles, styles } from "./styles";
 import type { DeviceMarkerProps } from "./types";
 
 export function DeviceMarker({
-  color,
   sx,
-  latitude,
-  longitude,
+  device,
   onClick,
   "aria-label": ariaLabel,
   ...props
 }: DeviceMarkerProps) {
   const id = useId();
-  const gradientId = useMemo(() => `${id}-${color}`, [id, color]);
-  const { start, end } = useMemo(() => colors.marker[color], [color]);
+  const { quality } = useMemo(() => getDeviceScore(device), [device]);
+  const gradientId = useMemo(() => `${id}-${quality}`, [id, quality]);
+  const { start, end } = useMemo(() => colors.marker[quality], [quality]);
   const { advancedMarkerRef, eventListeners, isActive } = useDeviceMarker();
 
   return (
@@ -34,8 +34,8 @@ export function DeviceMarker({
       <AdvancedMarker
         ref={advancedMarkerRef}
         position={{
-          lat: latitude,
-          lng: longitude,
+          lat: device.coordinates.latitude,
+          lng: device.coordinates.longitude,
         }}
         anchorLeft="-50%"
         anchorTop="-50%"

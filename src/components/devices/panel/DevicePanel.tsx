@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import RouterIcon from "@mui/icons-material/Router";
 
-import { combineSx } from "@/components/combineSx";
+import { combineSx } from "@/utils";
 
 import { styles } from "./styles";
 import type { DevicePanelProps } from "./types";

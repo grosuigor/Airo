@@ -1,6 +1,6 @@
-import { Device } from "@/types";
+import { DetailedDevice } from "@/types";
 
-export function filterOptions(query: string, devices: Device[]) {
+export function filterOptions(query: string, devices: DetailedDevice[]) {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return devices;
 

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
 
-import type { Device } from "@/types";
+import type { DetailedDevice } from "@/types";
 
 export type OptionProps = HTMLAttributes<HTMLLIElement> & {
-  device: Device;
+  device: DetailedDevice;
 };

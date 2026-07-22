@@ -1,8 +1,8 @@
-import type { DeviceCoordinates, LocationSelection } from "@/types";
+import type { Coordinates, Place } from "@/types";
 
 export type LocationPickerProps = {
   open: boolean;
-  coordinates: DeviceCoordinates;
+  coordinates: Coordinates;
   onClose: () => void;
-  onConfirm: (selection: LocationSelection) => void;
+  onConfirm: (selection: Place) => void;
 };

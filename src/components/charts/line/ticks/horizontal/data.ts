@@ -1,0 +1,1 @@
+export const HORIZONTAL_TICKS_HEIGHT = 28;

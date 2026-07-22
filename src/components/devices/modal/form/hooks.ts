@@ -4,9 +4,10 @@ import {
   useBackdropContext,
   useDevicesDispatchContext,
   useDeviceViewContext,
+  useMetricsContext,
   useToastContext,
 } from "@/providers";
-import type { Device, LocationSelection } from "@/types";
+import type { DetailedDevice, Place } from "@/types";
 import { generateId } from "@/utils";
 import { hasValidCoordinates } from "@/utils";
 
@@ -14,17 +15,23 @@ import { DUMMY_DEVICE } from "./data";
 
 export function useDeviceForm() {
   const dispatch = useDevicesDispatchContext();
+  const { metrics } = useMetricsContext();
   const { device: editableDevice } = useDeviceViewContext();
   const { close } = useBackdropContext();
   const { showToast } = useToastContext();
 
-  const [device, setDevice] = useState<Device>(editableDevice ?? DUMMY_DEVICE);
+  const [device, setDevice] = useState<DetailedDevice>(
+    editableDevice ?? { ...DUMMY_DEVICE, metrics },
+  );
 
-  const changeField = useCallback((field: keyof Device, value: Device[keyof Device]) => {
-    setDevice((prev) => ({ ...prev, [field]: value }));
-  }, []);
+  const changeField = useCallback(
+    (field: keyof DetailedDevice, value: DetailedDevice[keyof DetailedDevice]) => {
+      setDevice((prev) => ({ ...prev, [field]: value }));
+    },
+    [],
+  );
 
-  const setLocation = useCallback(({ location, coordinates }: LocationSelection) => {
+  const setLocation = useCallback(({ location, coordinates }: Place) => {
     setDevice((prev) => ({ ...prev, location, coordinates }));
   }, []);
 

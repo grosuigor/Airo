@@ -1,6 +1,6 @@
-import type { Device } from "@/types";
+import type { DetailedDevice } from "@/types";
 
 export type DeviceViewContextType = {
-  device: Device | null;
+  device: DetailedDevice | null;
   inspect: (deviceId: string) => void;
 };

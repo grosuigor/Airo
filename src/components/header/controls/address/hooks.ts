@@ -6,7 +6,7 @@ import { useMap } from "@vis.gl/react-google-maps";
 
 import { MAP_IDS } from "@/constants";
 import { useDevicesContext } from "@/providers";
-import type { Device } from "@/types";
+import type { DetailedDevice } from "@/types";
 
 import { filterOptions } from "./utils";
 
@@ -41,7 +41,7 @@ export function useAddressField() {
   }, []);
 
   const handleSelect = useCallback(
-    (_: SyntheticEvent, device: Device | null) => {
+    (_: SyntheticEvent, device: DetailedDevice | null) => {
       setIsOpen(false);
       queueMicrotask(() => {
         (document.activeElement as HTMLElement | null)?.blur();
