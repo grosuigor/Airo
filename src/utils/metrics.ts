@@ -1,7 +1,7 @@
 import type { MetricColor } from "@/lib/tokens";
 import type { DeviceMetricData, DeviceMetrics } from "@/types";
 
-import { generatePseudorandomNumber } from "./coordinates";
+import { generatePseudoRandomNumber } from "./coordinates";
 
 type MetricRange = {
   min: number;
@@ -161,7 +161,7 @@ export function getDeviceReadings(device: DeviceMetricData): DeviceReadings {
   const qualities: MetricColor[] = [];
 
   for (const metric of device.metrics) {
-    const seed = generatePseudorandomNumber(device.coordinates, METRIC_CHANNEL[metric]);
+    const seed = generatePseudoRandomNumber(device.coordinates, METRIC_CHANNEL[metric]);
     const reading = scaleMetricValue(seed, metric);
 
     byMetric[metric] = reading;
