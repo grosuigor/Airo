@@ -1,16 +1,16 @@
 import { METRIC_RANGES } from "@/constants";
-import type { ContinousMetricReading, ContinousMetricReadings, Device, Metric } from "@/types";
+import type { ContinuousMetricReading, ContinuousMetricReadings, Device, Metric } from "@/types";
 
 import { getDeviceReadingsFiller } from "./fillers";
 
 export function getContinuousDeviceReadings(
   device: Device,
   type: "today" | "week",
-): ContinousMetricReadings {
+): ContinuousMetricReadings {
   const filler = getDeviceReadingsFiller(type);
   const labeledReadings = filler(device);
 
-  const continuousReadings: Partial<Record<Metric, ContinousMetricReading>> = {};
+  const continuousReadings: Partial<Record<Metric, ContinuousMetricReading>> = {};
 
   for (const [label, readings] of Object.entries(labeledReadings)) {
     for (const reading of readings) {
