@@ -2,24 +2,22 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { type MapMouseEvent } from "@vis.gl/react-google-maps";
 
-import { DeviceCoordinates, LocationSelection } from "@/types";
+import { Coordinates, Place } from "@/types";
 import { hasValidCoordinates } from "@/utils";
 
 import { useReverseGeocode } from "../common";
 import { createInitialDraft } from "./utils";
 
-type onConfirmFn = (selection: LocationSelection) => void;
+type onConfirmFn = (selection: Place) => void;
 type onCloseFn = () => void;
 
 export function useLocationPicker(
-  coordinates: DeviceCoordinates,
+  coordinates: Coordinates,
   onConfirm: onConfirmFn,
   onClose: onCloseFn,
 ) {
   const reverseGeocode = useReverseGeocode();
-  const [draft, setDraft] = useState<LocationSelection | null>(() =>
-    createInitialDraft(coordinates),
-  );
+  const [draft, setDraft] = useState<Place | null>(() => createInitialDraft(coordinates));
 
   useEffect(() => {
     if (!hasValidCoordinates(coordinates)) return;
@@ -39,7 +37,7 @@ export function useLocationPicker(
       const latLng = event.detail.latLng;
       if (!latLng) return;
 
-      const nextCoordinates: DeviceCoordinates = {
+      const nextCoordinates: Coordinates = {
         latitude: latLng.lat,
         longitude: latLng.lng,
       };

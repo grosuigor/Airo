@@ -1,18 +1,22 @@
-export type DeviceMetrics = "temperature" | "humidity" | "pressure" | "co2" | "pm25" | "pm10";
+import type { MetricColor } from "@/lib/tokens";
 
-export type DeviceCoordinates = {
-  latitude: number;
-  longitude: number;
-};
+import type { Coordinates } from "./map";
+import type { Metric } from "./metric";
 
 export type Device = {
+  coordinates: Coordinates;
+  metrics: Metric[];
+};
+
+export type DeviceScore = {
+  value: number;
+  quality: MetricColor;
+};
+
+export type DetailedDevice = Device & {
   id: string;
   name: string;
   location: string;
-  coordinates: DeviceCoordinates;
   description: string;
-  metrics: DeviceMetrics[];
   key: string;
 };
-
-export type DeviceMetricData = Pick<Device, "coordinates" | "metrics">;

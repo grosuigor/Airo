@@ -1,2 +1,1 @@
-export { ArcChart } from "./arc";
-export { RingChart } from "./ring";
+export { Chart } from "./Chart";

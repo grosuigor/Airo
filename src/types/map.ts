@@ -1,6 +1,9 @@
-import type { DeviceCoordinates } from "@/types";
+export type Coordinates = {
+  latitude: number;
+  longitude: number;
+};
 
-export type LocationSelection = {
+export type Place = {
   location: string;
-  coordinates: DeviceCoordinates;
+  coordinates: Coordinates;
 };

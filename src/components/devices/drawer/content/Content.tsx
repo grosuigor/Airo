@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
+import { Charts } from "./charts";
 import { Header } from "./header";
 import { useDeviceRemoveButton } from "./hooks";
 import { styles } from "./styles";
@@ -15,6 +16,7 @@ export function Content({ device }: ContentProps) {
   return (
     <Stack sx={styles.root}>
       <Header device={device} />
+      <Charts device={device} />
       <Button
         variant="text"
         startIcon={<DeleteIcon />}

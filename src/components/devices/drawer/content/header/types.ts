@@ -1,5 +1,5 @@
-import type { Device } from "@/types";
+import type { DetailedDevice } from "@/types";
 
 export type HeaderProps = {
-  device: Device;
+  device: DetailedDevice;
 };

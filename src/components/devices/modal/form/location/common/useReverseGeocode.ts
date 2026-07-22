@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 
-import type { DeviceCoordinates, LocationSelection } from "@/types";
+import type { Coordinates, Place } from "@/types";
 
 import type { Geocoder } from "./types";
 
@@ -15,7 +15,7 @@ export function useReverseGeocode() {
     geocoderRef.current = new geocodingLib.Geocoder();
   }, [geocodingLib]);
 
-  return useCallback(async (coordinates: DeviceCoordinates): Promise<LocationSelection | null> => {
+  return useCallback(async (coordinates: Coordinates): Promise<Place | null> => {
     if (!geocoderRef.current) return null;
 
     try {

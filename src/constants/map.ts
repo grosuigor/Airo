@@ -1,6 +1,6 @@
 import type { MapProps } from "@vis.gl/react-google-maps";
 
-import type { DeviceCoordinates } from "@/types";
+import type { Coordinates } from "@/types";
 
 const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID!;
 
@@ -18,4 +18,4 @@ export const LOCATION_MAP_PROPS: MapProps = {
   disableDefaultUI: true,
 };
 
-export const EMPTY_COORDINATES: DeviceCoordinates = { latitude: 0, longitude: 0 };
+export const EMPTY_COORDINATES: Coordinates = { latitude: 0, longitude: 0 };

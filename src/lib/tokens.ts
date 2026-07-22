@@ -66,16 +66,6 @@ export const sizes = {
   switchHeight: 30,
 } as const;
 
-export const chartSizes = {
-  arc: 81,
-  ring: 60,
-} as const;
-
-export const chartStroke = {
-  default: 2,
-  hover: 6,
-} as const;
-
 export const letterSpacing = {
   default: "0.15px",
   compact: "0.03em",
