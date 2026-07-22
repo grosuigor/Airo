@@ -1,8 +1,8 @@
 export type { DetailedDevice, Device, DeviceScore } from "./devices";
 export type { Coordinates, Place } from "./map";
 export type {
-  ContinousMetricReading,
-  ContinousMetricReadings,
+  ContinuousMetricReading,
+  ContinuousMetricReadings,
   Metric,
   MetricPoint,
   MetricRange,

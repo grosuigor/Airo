@@ -24,9 +24,9 @@ export type MetricPoint = {
   label: string;
 };
 
-export type ContinousMetricReading = {
+export type ContinuousMetricReading = {
   values: MetricPoint[];
   threshold: number;
 };
 
-export type ContinousMetricReadings = Array<WithMetric<ContinousMetricReading>>;
+export type ContinuousMetricReadings = Array<WithMetric<ContinuousMetricReading>>;
